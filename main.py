@@ -2,11 +2,16 @@
 from cdktf import App, Fn, TerraformStack
 from constructs import Construct
 
-from imports.aws import (AwsProvider, DataAwsIdentitystoreGroup,
-                         DataAwsSsoadminInstances, OrganizationsAccount,
-                         OrganizationsOrganization, SsoadminAccountAssignment,
-                         SsoadminManagedPolicyAttachment,
-                         SsoadminPermissionSet)
+from imports.aws import (
+    AwsProvider,
+    DataAwsIdentitystoreGroup,
+    DataAwsSsoadminInstances,
+    OrganizationsAccount,
+    OrganizationsOrganization,
+    SsoadminAccountAssignment,
+    SsoadminManagedPolicyAttachment,
+    SsoadminPermissionSet,
+)
 
 account = "katt"
 domain = "defn.sh"

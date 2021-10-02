@@ -37,8 +37,8 @@ upgrade:
 
 fmt:
 	for a in *.tf *.tfvars; do if [[ -f $$a ]]; then terraform fmt $$a; fi; done
-	black $(shell git ls-files | grep 'py$$')
-	isort $(shell git ls-files | grep 'py$$')
+	black --quiet -c pyproject.toml $(shell git ls-files | grep 'py$$')
+	isort --quiet $(shell git ls-files | grep 'py$$')
 	git diff
 
 validate:
