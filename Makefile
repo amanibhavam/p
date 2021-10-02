@@ -5,8 +5,8 @@ main.tf.json: cdktf.out/stacks/default/cdk.tf.json
 	mv -f $@.1 $@
 
 install: venv/bin/activate
-	$(MAKE) cdktf
-	$(MAKE) cdktf-py
+	$(MAKE) cdktf-nodejs
+	$(MAKE) cdktf-python
 
 clean:
 	rm -rf venv
@@ -14,14 +14,14 @@ clean:
 	rm -rf imports cdktf.out
 
 venv/bin/activate:
-	$(MAKE) py
+	$(MAKE) cdktf-python
 
-cdktf:
+cdktf-nodejs:
 	npm config set fund false
 	npm install -g npm
 	npm install
 
-cdktf-py:
+cdktf-python:
 	python -m venv venv
 	. venv/bin/activate && python -m pip install --upgrade pip
 	. venv/bin/activate && python -m pip install -r requirements.txt
