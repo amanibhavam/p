@@ -26,8 +26,8 @@ cdktf-py:
 	. venv/bin/activate && python -m pip install --upgrade pip
 	. venv/bin/activate && python -m pip install -r requirements.txt
 
-test:
-	checkov -d .
+check:
+	flake8 $(shell git ls-files | grep 'py$$')
 
 init:
 	terraform init
