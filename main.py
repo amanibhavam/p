@@ -6,9 +6,9 @@ from constructs import Construct
 from fogg.aws import Organization
 from imports.aws import AwsProvider
 
-account = "katt"
+org = "katt"
 domain = "defn.sh"
-account_names = (
+accounts = (
     "org",
     "net",
     "log",
@@ -28,7 +28,7 @@ class MyStack(TerraformStack):
 
         AwsProvider(self, "aws", region="us-west-2")
 
-        Organization(self, account, domain, account_names)
+        Organization(self, org, domain, accounts)
 
 
 app = App()

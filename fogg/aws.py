@@ -13,7 +13,7 @@ from imports.aws import (
 )
 
 
-def Organization(self, account, domain, account_names):
+def Organization(self, org, domain, accounts):
     OrganizationsOrganization(
         self,
         "organization",
@@ -58,33 +58,34 @@ def Organization(self, account, domain, account_names):
         managed_policy_arn="arn:aws:iam::aws:policy/AdministratorAccess",
     )
 
-    for acctype in account_names:
-        if acctype == "org":
-            acct = OrganizationsAccount(
-                self,
-                acctype,
-                name=acctype,
-                email=f"{account}+{acctype}@{domain}",
-                tags={"ManagedBy": "Terraform"},
-            )
-        else:
-            acct = OrganizationsAccount(
-                self,
-                acctype,
-                name=acctype,
-                email=f"{account}+{acctype}@{domain}",
-                iam_user_access_to_billing="ALLOW",
-                role_name="OrganizationAccountAccessRole",
-                tags={"ManagedBy": "Terraform"},
-            )
+    for acct in accounts:
+        match acct:
+            case "org":
+                organizations_account = OrganizationsAccount(
+                    self,
+                    acct,
+                    name=acct,
+                    email=f"{org}+{acct}@{domain}",
+                    tags={"ManagedBy": "Terraform"},
+                )
+            case _:
+                organizations_account = OrganizationsAccount(
+                    self,
+                    acct,
+                    name=acct,
+                    email=f"{org}+{acct}@{domain}",
+                    iam_user_access_to_billing="ALLOW",
+                    role_name="OrganizationAccountAccessRole",
+                    tags={"ManagedBy": "Terraform"},
+                )
 
         SsoadminAccountAssignment(
             self,
-            f"{acctype}_admin_sso_account_assignment",
+            f"{acct}_admin_sso_account_assignment",
             instance_arn=sso_permission_set_admin.instance_arn,
             permission_set_arn=sso_permission_set_admin.arn,
             principal_id=identitystore_group.group_id,
             principal_type="GROUP",
-            target_id=acct.id,
+            target_id=organizations_account.id,
             target_type="AWS_ACCOUNT",
         )
