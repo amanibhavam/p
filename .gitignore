@@ -12,3 +12,4 @@ cdktf.log
 .idea
 .DS_Store
 venv/
+__pycache__
