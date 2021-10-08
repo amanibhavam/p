@@ -14,6 +14,7 @@ from imports.aws import (
 
 
 def Organization(self, org, domain, accounts):
+    """ The organization must be imported. """
     OrganizationsOrganization(
         self,
         "organization",
@@ -29,18 +30,10 @@ def Organization(self, org, domain, accounts):
         ],
     )
 
+    """ Lookup pre-enabled AWS SSO instance """
     ssoadmin_instances = DataAwsSsoadminInstances(self, "sso_instance")
-    identitystore_group = DataAwsIdentitystoreGroup(
-        self,
-        "administrators_sso_group",
-        identity_store_id=Fn.element(
-            Fn.tolist(ssoadmin_instances.identity_store_ids), 0
-        ),
-        filter=[
-            {"attributePath": "DisplayName", "attributeValue": "Administrators"}
-        ],
-    )
 
+    """ Administrator SSO permission set with AdministratorAccess policy"""
     sso_permission_set_admin = SsoadminPermissionSet(
         self,
         "admin_sso_permission_set",
@@ -58,9 +51,24 @@ def Organization(self, org, domain, accounts):
         managed_policy_arn="arn:aws:iam::aws:policy/AdministratorAccess",
     )
 
+    """ Lookup pre-created Administrators group """
+    identitystore_group = DataAwsIdentitystoreGroup(
+        self,
+        "administrators_sso_group",
+        identity_store_id=Fn.element(
+            Fn.tolist(ssoadmin_instances.identity_store_ids), 0
+        ),
+        filter=[
+            {"attributePath": "DisplayName", "attributeValue": "Administrators"}
+        ],
+    )
+
+    """ Create the organization accounts.  The master account (named "org") must be imported. """
     for acct in accounts:
         match acct:
             case "org":
+                """ The master organization account can't set
+                iam_user_access_to_billing, role_name """
                 organizations_account = OrganizationsAccount(
                     self,
                     acct,
@@ -69,6 +77,7 @@ def Organization(self, org, domain, accounts):
                     tags={"ManagedBy": "Terraform"},
                 )
             case _:
+                """ Organization account """
                 organizations_account = OrganizationsAccount(
                     self,
                     acct,
@@ -79,6 +88,7 @@ def Organization(self, org, domain, accounts):
                     tags={"ManagedBy": "Terraform"},
                 )
 
+        """ Organization accounts grant Administrator permission set to the Administrator group """
         SsoadminAccountAssignment(
             self,
             f"{acct}_admin_sso_account_assignment",
