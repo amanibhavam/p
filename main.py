@@ -21,12 +21,14 @@ accounts = (
     "dmz",
 )
 
+sso_region = "us-west-2"
+
 
 class MyStack(TerraformStack):
     def __init__(self, scope: Construct, ns: str):
         super().__init__(scope, ns)
 
-        AwsProvider(self, "aws", region="us-west-2")
+        AwsProvider(self, "aws", region=sso_region)
 
         Organization(self, org, domain, accounts)
 
