@@ -15,7 +15,7 @@ from imports.aws import (  # type: ignore
 
 
 def administrator(self, ssoadmin_instances):
-    """ Administrator SSO permission set with AdministratorAccess policy"""
+    """Administrator SSO permission set with AdministratorAccess policy"""
     resource = SsoadminPermissionSet(
         self,
         "admin_sso_permission_set",
@@ -36,9 +36,15 @@ def administrator(self, ssoadmin_instances):
     return resource
 
 
-def account(self, org: str, domain: str, acct: list, identitystore_group,
-            sso_permission_set_admin):
-    """ Create the organization account. """
+def account(
+    self,
+    org: str,
+    domain: str,
+    acct: list,
+    identitystore_group,
+    sso_permission_set_admin,
+):
+    """Create the organization account."""
     if acct == "org":
         # The master organization account can't set
         # iam_user_access_to_billing, role_name
@@ -75,7 +81,7 @@ def account(self, org: str, domain: str, acct: list, identitystore_group,
 
 
 def organization(self, org: str, domain: str, accounts: list):
-    """ The organization must be imported. """
+    """The organization must be imported."""
     OrganizationsOrganization(
         self,
         "organization",
@@ -104,12 +110,9 @@ def organization(self, org: str, domain: str, accounts: list):
         identity_store_id=Fn.element(
             Fn.tolist(ssoadmin_instances.identity_store_ids), 0
         ),
-        filter=[
-            {"attributePath": "DisplayName", "attributeValue": "Administrators"}
-        ],
+        filter=[{"attributePath": "DisplayName", "attributeValue": "Administrators"}],
     )
 
     # The master account (named "org") must be imported.
     for acct in accounts:
-        account(self, org, domain, acct, identitystore_group,
-                sso_permission_set_admin)
+        account(self, org, domain, acct, identitystore_group, sso_permission_set_admin)

@@ -70,6 +70,5 @@ build:
 	. ./venv/bin/activate && ./node_modules/.bin/cdktf synth
 	$(MAKE) main.tf.json
 
-test:
-	$(MAKE) typecheck
+fix:
 	pre-commit run -a

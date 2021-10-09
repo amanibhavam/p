@@ -9,7 +9,8 @@ from imports.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
-    """ cdktf Stack for an organization with accounts, sso. """
+    """cdktf Stack for an organization with accounts, sso."""
+
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
 
@@ -18,13 +19,13 @@ class KattStack(TerraformStack):
         self.organization()
 
     def providers(self):
-        """ AWS provider in a region with SSO. """
+        """AWS provider in a region with SSO."""
         sso_region = "us-west-2"
 
         AwsProvider(self, "aws", region=sso_region)
 
     def organization(self):
-        """ Make an Organization with accounts, sso """
+        """Make an Organization with accounts, sso"""
         org = "katt"
         domain = "defn.sh"
         accounts = (
