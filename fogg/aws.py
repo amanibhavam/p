@@ -36,7 +36,7 @@ def administrator(self, ssoadmin_instances):
     return resource
 
 
-def account(self, org, domain, acct, identitystore_group,
+def account(self, org: str, domain: str, acct: list, identitystore_group,
             sso_permission_set_admin):
     """ Create the organization account. """
     if acct == "org":
@@ -74,7 +74,7 @@ def account(self, org, domain, acct, identitystore_group,
     )
 
 
-def organization(self, org: str, domain: int, accounts: list):
+def organization(self, org: str, domain: str, accounts: list):
     """ The organization must be imported. """
     OrganizationsOrganization(
         self,
