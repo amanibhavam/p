@@ -1,39 +1,47 @@
 #!/usr/bin/env python
+""" Organization for katt@defn.sh """
 
 from cdktf import App, TerraformStack
 from constructs import Construct
-
-from fogg.aws import Organization
 from imports.aws import AwsProvider
 
-org = "katt"
-domain = "defn.sh"
-accounts = (
-    "org",
-    "net",
-    "log",
-    "lib",
-    "ops",
-    "sec",
-    "hub",
-    "pub",
-    "dev",
-    "dmz",
-)
-
-sso_region = "us-west-2"
+from fogg.aws import Organization
 
 
-class MyStack(TerraformStack):
-    def __init__(self, scope: Construct, ns: str):
-        super().__init__(scope, ns)
+class KattStack(TerraformStack):
+    """ cdktf Stack for an organization with accounts, sso. """
+    def __init__(self, scope: Construct, namespace: str):
+        super().__init__(scope, namespace)
+
+        self.Organization()
+
+    def providers(self):
+        """ AWS provider in a region with SSO. """
+        sso_region = "us-west-2"
 
         AwsProvider(self, "aws", region=sso_region)
+
+    def organization(self):
+        """ Make an Organization with accounts, sso """
+        org = "katt"
+        domain = "defn.sh"
+        accounts = (
+            "org",
+            "net",
+            "log",
+            "lib",
+            "ops",
+            "sec",
+            "hub",
+            "pub",
+            "dev",
+            "dmz",
+        )
 
         Organization(self, org, domain, accounts)
 
 
 app = App()
-MyStack(app, "default")
+KattStack(app, "default")
 
 app.synth()
