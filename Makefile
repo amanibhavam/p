@@ -10,6 +10,7 @@ main.tf.json: cdktf.out/stacks/default/cdk.tf.json
 install: venv/bin/activate
 	$(MAKE) cdktf-nodejs
 	$(MAKE) cdktf-python
+	$(MAKE) get
 
 clean:
 	rm -rf venv
