@@ -20,7 +20,6 @@ venv/bin/activate:
 	$(MAKE) cdktf-python
 
 cdktf-nodejs:
-	npm config set fund false
 	npm install -g npm
 	npm install
 
