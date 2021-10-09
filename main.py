@@ -5,7 +5,7 @@ from cdktf import App, TerraformStack
 from constructs import Construct
 from imports.aws import AwsProvider
 
-from fogg.aws import Organization
+import fogg.aws
 
 
 class KattStack(TerraformStack):
@@ -13,7 +13,9 @@ class KattStack(TerraformStack):
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
 
-        self.Organization()
+        self.providers()
+
+        self.organization()
 
     def providers(self):
         """ AWS provider in a region with SSO. """
@@ -38,7 +40,7 @@ class KattStack(TerraformStack):
             "dmz",
         )
 
-        Organization(self, org, domain, accounts)
+        fogg.aws.organization(self, org, domain, accounts)
 
 
 app = App()
