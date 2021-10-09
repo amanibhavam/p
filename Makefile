@@ -1,5 +1,8 @@
 SHELL := /bin/bash
 
+typecheck:
+	. ./venv/bin/activate && mypy main.py
+
 main.tf.json: cdktf.out/stacks/default/cdk.tf.json
 	cat $< | jq 'walk(if type == "object" then if .["//"] == null then . else del(.["//"]) end else . end)' > $@.1
 	mv -f $@.1 $@
@@ -68,5 +71,5 @@ build:
 	$(MAKE) main.tf.json
 
 test:
+	$(MAKE) typecheck
 	pre-commit run -a
-	. ./venv/bin/activate && mypy main.py

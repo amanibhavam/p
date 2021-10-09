@@ -3,7 +3,7 @@
 
 from cdktf import Fn
 
-from imports.aws import (
+from imports.aws import (  # type: ignore
     DataAwsIdentitystoreGroup,
     DataAwsSsoadminInstances,
     OrganizationsAccount,
@@ -74,7 +74,7 @@ def account(self, org, domain, acct, identitystore_group,
     )
 
 
-def organization(self, org, domain, accounts):
+def organization(self, org: str, domain: int, accounts: list):
     """ The organization must be imported. """
     OrganizationsOrganization(
         self,

@@ -5,7 +5,7 @@ from cdktf import App, TerraformStack
 from constructs import Construct
 
 import fogg.aws
-from imports.aws import AwsProvider
+from imports.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
