@@ -1,3 +1,2 @@
 cdktf
 mypy
-jedi
