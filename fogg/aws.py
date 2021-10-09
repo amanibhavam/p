@@ -2,15 +2,14 @@
 """ Creates Organizations, Accounts, and Administrator permission set """
 
 from cdktf import Fn
-from imports.aws import (  # type: ignore
-    DataAwsIdentitystoreGroup,
-    DataAwsSsoadminInstances,
-    OrganizationsAccount,
-    OrganizationsOrganization,
-    SsoadminAccountAssignment,
-    SsoadminManagedPolicyAttachment,
-    SsoadminPermissionSet,
-)
+
+from imports.aws import DataAwsIdentitystoreGroup  # type: ignore
+from imports.aws import DataAwsSsoadminInstances  # type: ignore
+from imports.aws import OrganizationsAccount  # type: ignore
+from imports.aws import OrganizationsOrganization  # type: ignore
+from imports.aws import SsoadminAccountAssignment  # type: ignore
+from imports.aws import SsoadminManagedPolicyAttachment  # type: ignore
+from imports.aws import SsoadminPermissionSet  # type: ignore
 
 
 def administrator(self, ssoadmin_instances):
