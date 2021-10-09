@@ -2,6 +2,7 @@
 """ Creates Organizations, Accounts, and Administrator permission set """
 
 from cdktf import Fn
+
 from imports.aws import (
     DataAwsIdentitystoreGroup,
     DataAwsSsoadminInstances,
@@ -38,28 +39,27 @@ def administrator(self, ssoadmin_instances):
 def account(self, org, domain, acct, identitystore_group,
             sso_permission_set_admin):
     """ Create the organization account. """
-    match acct:
-        case "org":
-            # The master organization account can't set
-            # iam_user_access_to_billing, role_name
-            organizations_account = OrganizationsAccount(
-                self,
-                acct,
-                name=acct,
-                email=f"{org}+{acct}@{domain}",
-                tags={"ManagedBy": "Terraform"},
-            )
-        case _:
-            # Organization account
-            organizations_account = OrganizationsAccount(
-                self,
-                acct,
-                name=acct,
-                email=f"{org}+{acct}@{domain}",
-                iam_user_access_to_billing="ALLOW",
-                role_name="OrganizationAccountAccessRole",
-                tags={"ManagedBy": "Terraform"},
-            )
+    if acct == "org":
+        # The master organization account can't set
+        # iam_user_access_to_billing, role_name
+        organizations_account = OrganizationsAccount(
+            self,
+            acct,
+            name=acct,
+            email=f"{org}+{acct}@{domain}",
+            tags={"ManagedBy": "Terraform"},
+        )
+    else:
+        # Organization account
+        organizations_account = OrganizationsAccount(
+            self,
+            acct,
+            name=acct,
+            email=f"{org}+{acct}@{domain}",
+            iam_user_access_to_billing="ALLOW",
+            role_name="OrganizationAccountAccessRole",
+            tags={"ManagedBy": "Terraform"},
+        )
 
     # Organization accounts grant Administrator permission set to the Administrator group
     SsoadminAccountAssignment(

@@ -3,9 +3,9 @@
 
 from cdktf import App, TerraformStack
 from constructs import Construct
-from imports.aws import AwsProvider
 
 import fogg.aws
+from imports.aws import AwsProvider
 
 
 class KattStack(TerraformStack):

@@ -66,3 +66,7 @@ get:
 build:
 	. ./venv/bin/activate && ./node_modules/.bin/cdktf synth
 	$(MAKE) main.tf.json
+
+test:
+	pre-commit run -a
+	. ./venv/bin/activate && mypy main.py
