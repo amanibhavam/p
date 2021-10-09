@@ -3,9 +3,9 @@
 
 from cdktf import App, TerraformStack
 from constructs import Construct
+from imports.aws import AwsProvider  # type: ignore
 
 import fogg.aws
-from imports.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
@@ -28,7 +28,7 @@ class KattStack(TerraformStack):
         """Make an Organization with accounts, sso"""
         org = "katt"
         domain = "defn.sh"
-        accounts = (
+        accounts = [
             "org",
             "net",
             "log",
@@ -39,7 +39,7 @@ class KattStack(TerraformStack):
             "pub",
             "dev",
             "dmz",
-        )
+        ]
 
         fogg.aws.organization(self, org, domain, accounts)
 
