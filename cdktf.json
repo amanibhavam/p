@@ -2,7 +2,7 @@
   "language": "python",
   "app": "python3 ./main.py",
   "codeMakerOutput": "imports",
-  "terraformProviders": ["aws@~> 3.60.0"],
+  "terraformProviders": ["aws@~> 3.63.0"],
   "terraformModules": [],
   "context": {
     "excludeStackIdFromLogicalIds": "true",
