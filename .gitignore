@@ -6,7 +6,7 @@ terraform.tfstate*
 .terraform*
 .plan*
 dist/
-imports/*
+imports
 cdktf.out
 cdktf.log
 .idea
