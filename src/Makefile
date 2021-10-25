@@ -21,9 +21,8 @@ venv/bin/activate:
 	$(MAKE) cdktf-python
 
 cdktf-nodejs:
-	-cd .. && npm install
-	cd ../node_modules/cdktf-cli/ && npm install @types/node@14.17.27
 	cd .. && npm install
+	cd ../node_modules/cdktf-cli/ && npm install @types/node@14.17.27
 
 cdktf-python:
 	python -m venv ../venv
