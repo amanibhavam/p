@@ -21,8 +21,9 @@ venv/bin/activate:
 	$(MAKE) cdktf-python
 
 cdktf-nodejs:
-	npm install -g npm
-	npm install
+	-cd .. && npm install
+	cd ../node_modules/cdktf-cli/ && npm install @types/node@14.17.27
+	cd .. && npm install
 
 cdktf-python:
 	python -m venv ../venv
@@ -67,7 +68,7 @@ get:
 	../node_modules/.bin/cdktf get
 
 build:
-	. ../venv/bin/activate && ./node_modules/.bin/cdktf synth
+	. ../venv/bin/activate && ../node_modules/.bin/cdktf synth
 	$(MAKE) main.tf.json
 
 fix:
