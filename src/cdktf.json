@@ -2,10 +2,12 @@
   "language": "python",
   "app": "python ./main.py",
   "codeMakerOutput": "imports",
-  "terraformProviders": ["aws@~> 3.63.0"],
-  "terraformModules": [],
-  "context": {
-    "excludeStackIdFromLogicalIds": "true",
-    "allowSepCharsInLogicalIds": "true"
-  }
+  "terraformProviders": [
+    "aws@~> 4.13.0"
+  ],
+    "context": {
+        "excludeStackIdFromLogicalIds": "true",
+        "allowSepCharsInLogicalIds": "true"
+      },
+  "projectId": "4534af01-b608-43f3-add0-9e3d498f1da3"
 }

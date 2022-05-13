@@ -6,10 +6,10 @@ from cdktf import Fn
 from imports.aws import DataAwsIdentitystoreGroup  # type: ignore
 from imports.aws.organizations import OrganizationsAccount  # type: ignore
 from imports.aws.organizations import OrganizationsOrganization  # type: ignore
-from imports.aws.sso_admin import DataAwsSsoadminInstances  # type: ignore
-from imports.aws.sso_admin import SsoadminAccountAssignment  # type: ignore
-from imports.aws.sso_admin import SsoadminManagedPolicyAttachment  # type: ignore
-from imports.aws.sso_admin import SsoadminPermissionSet  # type: ignore
+from imports.aws.ssoadmin import DataAwsSsoadminInstances  # type: ignore
+from imports.aws.ssoadmin import SsoadminAccountAssignment  # type: ignore
+from imports.aws.ssoadmin import SsoadminManagedPolicyAttachment  # type: ignore
+from imports.aws.ssoadmin import SsoadminPermissionSet  # type: ignore
 
 
 def administrator(self, ssoadmin_instances):
