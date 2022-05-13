@@ -1,8 +1,5 @@
 SHELL := /bin/bash
 
-main.tf.json: cdktf.out/stacks/default/cdk.tf.json
-	cp $< $@
-
 install: venv/bin/activate
 	@true
 
@@ -37,12 +34,11 @@ refresh:
 console:
 	terraform console
 
-apply-refresh: cdk.tf.json
+apply-refresh:
 	terraform apply -refresh-only
 
 get:
 	cdktf get
 
-build:
-	. ./venv/bin/activate && cdktf synth
-	$(MAKE) main.tf.json
+synth:
+	cdktf synth

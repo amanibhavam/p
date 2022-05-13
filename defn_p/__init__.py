@@ -43,8 +43,8 @@ class KattStack(TerraformStack):
 
         fogg.aws.organization(self, org, domain, accounts)
 
+def main():
+    app = App()
+    KattStack(app, "default")
 
-app = App()
-KattStack(app, "default")
-
-app.synth()
+    app.synth()
