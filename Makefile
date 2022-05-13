@@ -33,7 +33,7 @@ apply-refresh:
 	terraform apply -refresh-only
 
 get:
-	cdktf get
+	poetry run cdktf get
 
 synth:
 	cdktf synth

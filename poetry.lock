@@ -10,7 +10,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "attrs"
 version = "21.4.0"
 description = "Classes Without Boilerplate"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -24,7 +24,7 @@ tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>
 name = "cattrs"
 version = "22.1.0"
 description = "Composable complex class support for attrs and dataclasses."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 
@@ -36,7 +36,7 @@ exceptiongroup = {version = "*", markers = "python_version <= \"3.10\""}
 name = "cdktf"
 version = "0.10.4"
 description = "Cloud Development Kit for Terraform"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -57,7 +57,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "constructs"
 version = "10.1.7"
 description = "A programming model for software-defined state"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.7"
 
@@ -69,7 +69,7 @@ publication = ">=0.0.3"
 name = "exceptiongroup"
 version = "1.0.0rc5"
 description = "Backport of PEP 654 (exception groups)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -80,7 +80,7 @@ test = ["pytest (>=6)"]
 name = "jsii"
 version = "1.58.0"
 description = "Python client for jsii runtime"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "~=3.7"
 
@@ -124,7 +124,7 @@ dev = ["pre-commit", "tox"]
 name = "publication"
 version = "0.0.3"
 description = "Publication helps you maintain public-api-friendly modules by preventing unintentional access to private implementation details via introspection."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -173,7 +173,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xm
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
@@ -184,7 +184,7 @@ six = ">=1.5"
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -192,7 +192,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "typing-extensions"
 version = "4.2.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -207,7 +207,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3c657786946e7472a7d4e294b643c36e7e1b13fcab2ac16fb31560e152bae0e5"
+content-hash = "b93359790fe581c1824e966b09541fd207304b73e0e72fabb03bcfec1c4c6154"
 
 [metadata.files]
 atomicwrites = [

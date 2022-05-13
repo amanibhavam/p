@@ -1,6 +1,6 @@
 {
   "language": "python",
-  "app": "poetry run cdktf",
+  "app": "poetry run defn_p",
   "codeMakerOutput": "imports",
   "terraformProviders": ["aws@~> 4.13.0"],
   "context": {
