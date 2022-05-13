@@ -4,8 +4,7 @@ main.tf.json: cdktf.out/stacks/default/cdk.tf.json
 	cp $< $@
 
 install: venv/bin/activate
-	$(MAKE) cdktf-python
-	$(MAKE) get
+	@true
 
 clean:
 	rm -rf venv

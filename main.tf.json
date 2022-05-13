@@ -393,7 +393,7 @@
   "terraform": {
     "backend": {
       "local": {
-        "path": "/mnt/work/dev/p/src/terraform.default.tfstate"
+        "path": "/mnt/work/p/terraform.default.tfstate"
       }
     },
     "required_providers": {
