@@ -2,12 +2,10 @@
   "language": "python",
   "app": "poetry run cdktf",
   "codeMakerOutput": "imports",
-  "terraformProviders": [
-    "aws@~> 4.13.0"
-  ],
-    "context": {
-        "excludeStackIdFromLogicalIds": "true",
-        "allowSepCharsInLogicalIds": "true"
-      },
-  "projectId": "4534af01-b608-43f3-add0-9e3d498f1da3"
+  "terraformProviders": ["aws@~> 4.13.0"],
+  "context": {
+    "excludeStackIdFromLogicalIds": "true",
+    "allowSepCharsInLogicalIds": "true"
+  },
+  "projectId": "3f16e1d3-e3f2-41d6-aef3-6ac56c3d06eb"
 }
