@@ -8,17 +8,13 @@ install: venv/bin/activate
 	$(MAKE) get
 
 clean:
-	rm -rf ../venv
-	rm -rf ../node_modules
+	rm -rf venv
 	rm -rf imports cdktf.out
 
 venv/bin/activate:
-	$(MAKE) cdktf-python
-
-cdktf-python:
-	python -m venv ../venv
-	. ../venv/bin/activate && python -m pip install --upgrade pip
-	. ../venv/bin/activate && python -m pip install -r ../requirements.txt
+	python -m venv venv
+	./venv/bin/python -m pip install --upgrade pip
+	./venv/bin/python -m pip install -r requirements.txt
 
 init:
 	terraform init
@@ -49,5 +45,5 @@ get:
 	cdktf get
 
 build:
-	. ../venv/bin/activate && cdktf synth
+	. ./venv/bin/activate && cdktf synth
 	$(MAKE) main.tf.json
