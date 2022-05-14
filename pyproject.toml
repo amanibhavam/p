@@ -1,8 +1,13 @@
 [tool.poetry]
 name = "amanibhavam"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Amanibhavam <iam@defn.sh>"]
+
+packages = [
+    { include = "fogg" },
+    { include = "imports" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
