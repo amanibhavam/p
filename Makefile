@@ -53,7 +53,7 @@ get:
 	pre-commit
 
 synth:
-	cdktf synth
+	poetry run cdktf synth
 	git add -f cdktf.out/stacks/default/cdk.tf.json
 	-pre-commit
 	git add -f cdktf.out/stacks/default/cdk.tf.json

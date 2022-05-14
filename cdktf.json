@@ -1,6 +1,6 @@
 {
   "language": "python",
-  "app": "poetry run amanibhavam",
+  "app": "amanibhavam",
   "codeMakerOutput": "amanibhavam/cdk",
   "context": {
     "excludeStackIdFromLogicalIds": "true",

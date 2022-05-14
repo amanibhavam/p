@@ -37,7 +37,7 @@ class KattStack(TerraformStack):
             "hub",
             "pub",
             "dev",
-            "dmz",
+            "dmz"
         ]
 
         amanibhavam.fogg.organization(self, org, domain, accounts)
