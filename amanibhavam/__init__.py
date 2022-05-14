@@ -1,9 +1,10 @@
 """ Organization for katt@defn.sh """
 
-import fogg.aws
 from cdktf import App, TerraformStack
 from constructs import Construct
-from imports.aws import AwsProvider  # type: ignore
+
+import amanibhavam.aws
+from amanibhavam.imports.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
@@ -39,7 +40,7 @@ class KattStack(TerraformStack):
             "dmz",
         ]
 
-        fogg.aws.organization(self, org, domain, accounts)
+        amanibhavam.aws.organization(self, org, domain, accounts)
 
 def main():
     app = App()

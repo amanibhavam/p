@@ -1,7 +1,7 @@
 {
   "language": "python",
   "app": "poetry run amanibhavam",
-  "codeMakerOutput": "imports",
+  "codeMakerOutput": "amanibhavam/imports",
   "terraformProviders": ["aws@~> 4.13.0"],
   "context": {
     "excludeStackIdFromLogicalIds": "true",
