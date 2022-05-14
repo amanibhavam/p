@@ -48,6 +48,9 @@ apply-refresh:
 
 get:
 	poetry run cdktf get
+	git add */cdk
+	pre-commit
+	git add */cdk
 
 synth:
 	cdktf synth

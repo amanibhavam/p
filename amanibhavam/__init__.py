@@ -3,8 +3,8 @@
 from cdktf import App, TerraformStack
 from constructs import Construct
 
-import amanibhavam.aws
-from amanibhavam.imports.aws import AwsProvider  # type: ignore
+import amanibhavam.fogg
+from amanibhavam.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
@@ -40,7 +40,7 @@ class KattStack(TerraformStack):
             "dmz",
         ]
 
-        amanibhavam.aws.organization(self, org, domain, accounts)
+        amanibhavam.fogg.organization(self, org, domain, accounts)
 
 def main():
     app = App()
