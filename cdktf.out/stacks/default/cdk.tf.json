@@ -9,11 +9,11 @@
   },
   "data": {
     "aws_identitystore_group": {
-      "default_administratorsssogroup_9D8D7C34": {
+      "administrators_sso_group": {
         "//": {
           "metadata": {
             "path": "default/administrators_sso_group",
-            "uniqueId": "default_administratorsssogroup_9D8D7C34"
+            "uniqueId": "administrators_sso_group"
           }
         },
         "filter": [
@@ -22,15 +22,15 @@
             "attribute_value": "Administrators"
           }
         ],
-        "identity_store_id": "${element(tolist(data.aws_ssoadmin_instances.default_ssoinstance_5D754BAB.identity_store_ids), 0)}"
+        "identity_store_id": "${element(tolist(data.aws_ssoadmin_instances.sso_instance.identity_store_ids), 0)}"
       }
     },
     "aws_ssoadmin_instances": {
-      "default_ssoinstance_5D754BAB": {
+      "sso_instance": {
         "//": {
           "metadata": {
             "path": "default/sso_instance",
-            "uniqueId": "default_ssoinstance_5D754BAB"
+            "uniqueId": "sso_instance"
           }
         }
       }
@@ -45,11 +45,11 @@
   },
   "resource": {
     "aws_organizations_account": {
-      "default_dev_7EE99251": {
+      "dev": {
         "//": {
           "metadata": {
             "path": "default/dev",
-            "uniqueId": "default_dev_7EE99251"
+            "uniqueId": "dev"
           }
         },
         "email": "katt+dev@defn.sh",
@@ -60,11 +60,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_dmz_91587B36": {
+      "dmz": {
         "//": {
           "metadata": {
             "path": "default/dmz",
-            "uniqueId": "default_dmz_91587B36"
+            "uniqueId": "dmz"
           }
         },
         "email": "katt+dmz@defn.sh",
@@ -75,11 +75,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_hub_E6A707C0": {
+      "hub": {
         "//": {
           "metadata": {
             "path": "default/hub",
-            "uniqueId": "default_hub_E6A707C0"
+            "uniqueId": "hub"
           }
         },
         "email": "katt+hub@defn.sh",
@@ -90,11 +90,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_lib_141682FA": {
+      "lib": {
         "//": {
           "metadata": {
             "path": "default/lib",
-            "uniqueId": "default_lib_141682FA"
+            "uniqueId": "lib"
           }
         },
         "email": "katt+lib@defn.sh",
@@ -105,11 +105,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_log_BA5E0885": {
+      "log": {
         "//": {
           "metadata": {
             "path": "default/log",
-            "uniqueId": "default_log_BA5E0885"
+            "uniqueId": "log"
           }
         },
         "email": "katt+log@defn.sh",
@@ -120,11 +120,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_net_862F0964": {
+      "net": {
         "//": {
           "metadata": {
             "path": "default/net",
-            "uniqueId": "default_net_862F0964"
+            "uniqueId": "net"
           }
         },
         "email": "katt+net@defn.sh",
@@ -135,11 +135,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_ops_F6FF58E1": {
+      "ops": {
         "//": {
           "metadata": {
             "path": "default/ops",
-            "uniqueId": "default_ops_F6FF58E1"
+            "uniqueId": "ops"
           }
         },
         "email": "katt+ops@defn.sh",
@@ -150,11 +150,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_org_0CBBA523": {
+      "org": {
         "//": {
           "metadata": {
             "path": "default/org",
-            "uniqueId": "default_org_0CBBA523"
+            "uniqueId": "org"
           }
         },
         "email": "katt+org@defn.sh",
@@ -163,11 +163,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_pub_478CFA8E": {
+      "pub": {
         "//": {
           "metadata": {
             "path": "default/pub",
-            "uniqueId": "default_pub_478CFA8E"
+            "uniqueId": "pub"
           }
         },
         "email": "katt+pub@defn.sh",
@@ -178,11 +178,11 @@
           "ManagedBy": "Terraform"
         }
       },
-      "default_sec_0EE830AF": {
+      "sec": {
         "//": {
           "metadata": {
             "path": "default/sec",
-            "uniqueId": "default_sec_0EE830AF"
+            "uniqueId": "sec"
           }
         },
         "email": "katt+sec@defn.sh",
@@ -195,11 +195,11 @@
       }
     },
     "aws_organizations_organization": {
-      "default_organization_7C48A29A": {
+      "organization": {
         "//": {
           "metadata": {
             "path": "default/organization",
-            "uniqueId": "default_organization_7C48A29A"
+            "uniqueId": "organization"
           }
         },
         "aws_service_access_principals": [
@@ -215,169 +215,169 @@
       }
     },
     "aws_ssoadmin_account_assignment": {
-      "default_devadminssoaccountassignment_3C388A68": {
+      "dev_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/dev_admin_sso_account_assignment",
-            "uniqueId": "default_devadminssoaccountassignment_3C388A68"
+            "uniqueId": "dev_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_dev_7EE99251.id}",
+        "target_id": "${aws_organizations_account.dev.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_dmzadminssoaccountassignment_F5E6152F": {
+      "dmz_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/dmz_admin_sso_account_assignment",
-            "uniqueId": "default_dmzadminssoaccountassignment_F5E6152F"
+            "uniqueId": "dmz_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_dmz_91587B36.id}",
+        "target_id": "${aws_organizations_account.dmz.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_hubadminssoaccountassignment_FA43B29E": {
+      "hub_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/hub_admin_sso_account_assignment",
-            "uniqueId": "default_hubadminssoaccountassignment_FA43B29E"
+            "uniqueId": "hub_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_hub_E6A707C0.id}",
+        "target_id": "${aws_organizations_account.hub.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_libadminssoaccountassignment_D7A5F09B": {
+      "lib_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/lib_admin_sso_account_assignment",
-            "uniqueId": "default_libadminssoaccountassignment_D7A5F09B"
+            "uniqueId": "lib_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_lib_141682FA.id}",
+        "target_id": "${aws_organizations_account.lib.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_logadminssoaccountassignment_C88E3995": {
+      "log_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/log_admin_sso_account_assignment",
-            "uniqueId": "default_logadminssoaccountassignment_C88E3995"
+            "uniqueId": "log_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_log_BA5E0885.id}",
+        "target_id": "${aws_organizations_account.log.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_netadminssoaccountassignment_F834B41B": {
+      "net_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/net_admin_sso_account_assignment",
-            "uniqueId": "default_netadminssoaccountassignment_F834B41B"
+            "uniqueId": "net_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_net_862F0964.id}",
+        "target_id": "${aws_organizations_account.net.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_opsadminssoaccountassignment_951F7E27": {
+      "ops_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/ops_admin_sso_account_assignment",
-            "uniqueId": "default_opsadminssoaccountassignment_951F7E27"
+            "uniqueId": "ops_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_ops_F6FF58E1.id}",
+        "target_id": "${aws_organizations_account.ops.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_orgadminssoaccountassignment_47E7658A": {
+      "org_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/org_admin_sso_account_assignment",
-            "uniqueId": "default_orgadminssoaccountassignment_47E7658A"
+            "uniqueId": "org_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_org_0CBBA523.id}",
+        "target_id": "${aws_organizations_account.org.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_pubadminssoaccountassignment_3F469150": {
+      "pub_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/pub_admin_sso_account_assignment",
-            "uniqueId": "default_pubadminssoaccountassignment_3F469150"
+            "uniqueId": "pub_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_pub_478CFA8E.id}",
+        "target_id": "${aws_organizations_account.pub.id}",
         "target_type": "AWS_ACCOUNT"
       },
-      "default_secadminssoaccountassignment_53BE6B44": {
+      "sec_admin_sso_account_assignment": {
         "//": {
           "metadata": {
             "path": "default/sec_admin_sso_account_assignment",
-            "uniqueId": "default_secadminssoaccountassignment_53BE6B44"
+            "uniqueId": "sec_admin_sso_account_assignment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}",
-        "principal_id": "${data.aws_identitystore_group.default_administratorsssogroup_9D8D7C34.group_id}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}",
+        "principal_id": "${data.aws_identitystore_group.administrators_sso_group.group_id}",
         "principal_type": "GROUP",
-        "target_id": "${aws_organizations_account.default_sec_0EE830AF.id}",
+        "target_id": "${aws_organizations_account.sec.id}",
         "target_type": "AWS_ACCOUNT"
       }
     },
     "aws_ssoadmin_managed_policy_attachment": {
-      "default_adminssomanagedpolicyattachment_25A92D78": {
+      "admin_sso_managed_policy_attachment": {
         "//": {
           "metadata": {
             "path": "default/admin_sso_managed_policy_attachment",
-            "uniqueId": "default_adminssomanagedpolicyattachment_25A92D78"
+            "uniqueId": "admin_sso_managed_policy_attachment"
           }
         },
-        "instance_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.instance_arn}",
+        "instance_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.instance_arn}",
         "managed_policy_arn": "arn:aws:iam::aws:policy/AdministratorAccess",
-        "permission_set_arn": "${aws_ssoadmin_permission_set.default_adminssopermissionset_5F4AC3A3.arn}"
+        "permission_set_arn": "${aws_ssoadmin_permission_set.admin_sso_permission_set.arn}"
       }
     },
     "aws_ssoadmin_permission_set": {
-      "default_adminssopermissionset_5F4AC3A3": {
+      "admin_sso_permission_set": {
         "//": {
           "metadata": {
             "path": "default/admin_sso_permission_set",
-            "uniqueId": "default_adminssopermissionset_5F4AC3A3"
+            "uniqueId": "admin_sso_permission_set"
           }
         },
-        "instance_arn": "${element(tolist(data.aws_ssoadmin_instances.default_ssoinstance_5D754BAB.arns), 0)}",
+        "instance_arn": "${element(tolist(data.aws_ssoadmin_instances.sso_instance.arns), 0)}",
         "name": "Administrator",
         "session_duration": "PT2H",
         "tags": {

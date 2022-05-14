@@ -54,7 +54,7 @@ get:
 
 synth:
 	cdktf synth
-	git add cdktf.out/stacks/default/cdk.tf.json
+	git add -f cdktf.out/stacks/default/cdk.tf.json
 	-pre-commit
-	git add cdktf.out/stacks/default/cdk.tf.json
+	git add -f cdktf.out/stacks/default/cdk.tf.json
 	pre-commit
