@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """ Organization for katt@defn.sh """
 
 import fogg.aws

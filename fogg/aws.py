@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """ Creates Organizations, Accounts, and Administrator permission set """
 
 from cdktf import Fn
