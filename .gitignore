@@ -1,15 +1,2 @@
-node_modules
-cdktf.out
-cdktf.log
-*terraform.*.tfstate*
-terraform.tfstate*
-.terraform*
-.plan*
 dist/
-imports
-cdktf.out
-cdktf.log
-.idea
-.DS_Store
-venv/
 __pycache__
