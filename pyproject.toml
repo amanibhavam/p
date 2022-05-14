@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "amanibhavam"
-version = "0.1.6-alpha.3"
+version = "0.1.6-alpha.5"
 description = ""
 authors = ["Amanibhavam <iam@defn.sh>"]
 
