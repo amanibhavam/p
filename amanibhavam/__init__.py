@@ -17,26 +17,24 @@ from constructs import Construct
 import amanibhavam.fogg
 
 
-class KattStack(TerraformStack):
+class AwsOrganizationStack(TerraformStack):
     """cdktf Stack for an organization with accounts, sso."""
 
-    def __init__(self, scope: Construct, namespace: str):
+    def __init__(self, scope: Construct, namespace: str, org: str, domain: str, region: str):
         super().__init__(scope, namespace)
 
-        self.providers()
+        self.awsProviders(region)
 
-        self.organization()
+        self.awsOrganization(org, domain)
 
-    def providers(self):
+    def awsProviders(self, region):
         """AWS provider in a region with SSO."""
-        sso_region = "us-west-2"
+        sso_region = region
 
         AwsProvider(self, "aws", region=sso_region)
 
-    def organization(self):
+    def awsOrganization(self, org, domain):
         """Make an Organization with accounts, sso"""
-        org = "katt"
-        domain = "defn.sh"
         accounts = [
             "org",
             "net",
@@ -51,9 +49,3 @@ class KattStack(TerraformStack):
         ]
 
         amanibhavam.fogg.organization(self, org, domain, accounts)
-
-def main():
-    app = App()
-    KattStack(app, "default")
-
-    app.synth()
