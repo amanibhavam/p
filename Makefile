@@ -48,8 +48,13 @@ get:
 	amanibhavam/cdk/__init__.py
 	amanibhavam/cdk/aws/__init__.py
 	git add */cdk
-	pre-commit
+	-pre-commit
 	git add */cdk
+	pre-commit
 
 synth:
 	cdktf synth
+	git add cdktf.out/stacks/default/cdk.tf.json
+	-pre-commit
+	git add cdktf.out/stacks/default/cdk.tf.json
+	pre-commit

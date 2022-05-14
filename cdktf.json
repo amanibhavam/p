@@ -2,7 +2,6 @@
   "language": "python",
   "app": "poetry run amanibhavam",
   "codeMakerOutput": "amanibhavam/cdk",
-  "terraformProviders": ["aws@~> 4.13.0"],
   "context": {
     "excludeStackIdFromLogicalIds": "true",
     "allowSepCharsInLogicalIds": "true"

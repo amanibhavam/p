@@ -2,18 +2,18 @@
 
 from cdktf import Fn
 
-from amanibhavam.cdk.aws import DataAwsIdentitystoreGroup  # type: ignore
-from amanibhavam.cdk.aws.organizations import \
+from cdktf_cdktf_provider_aws import DataAwsIdentitystoreGroup  # type: ignore
+from cdktf_cdktf_provider_aws.organizations import \
     OrganizationsAccount  # type: ignore
-from amanibhavam.cdk.aws.organizations import \
+from cdktf_cdktf_provider_aws.organizations import \
     OrganizationsOrganization  # type: ignore
-from amanibhavam.cdk.aws.ssoadmin import \
+from cdktf_cdktf_provider_aws.ssoadmin import \
     DataAwsSsoadminInstances  # type: ignore
-from amanibhavam.cdk.aws.ssoadmin import \
+from cdktf_cdktf_provider_aws.ssoadmin import \
     SsoadminAccountAssignment  # type: ignore
-from amanibhavam.cdk.aws.ssoadmin import \
+from cdktf_cdktf_provider_aws.ssoadmin import \
     SsoadminManagedPolicyAttachment  # type: ignore
-from amanibhavam.cdk.aws.ssoadmin import SsoadminPermissionSet  # type: ignore
+from cdktf_cdktf_provider_aws.ssoadmin import SsoadminPermissionSet  # type: ignore
 
 
 def administrator(self, ssoadmin_instances):
