@@ -3,6 +3,12 @@ SHELL := /bin/bash
 install:
 	poetry install
 
+build:
+	poetry build
+
+publish:
+	poetry publish
+
 clean:
 	rm -rf venv
 	rm -rf imports cdktf.out
