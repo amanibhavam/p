@@ -1,6 +1,6 @@
 {
   "language": "python",
-  "app": "poetry run defn_p",
+  "app": "poetry run amanibhavam",
   "codeMakerOutput": "imports",
   "terraformProviders": ["aws@~> 4.13.0"],
   "context": {
