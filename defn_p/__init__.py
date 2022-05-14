@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 """ Organization for katt@defn.sh """
 
+import fogg.aws
 from cdktf import App, TerraformStack
 from constructs import Construct
-
-import fogg.aws
 from imports.aws import AwsProvider  # type: ignore
 
 
