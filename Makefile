@@ -1,8 +1,5 @@
 SHELL := /bin/bash
 
-install:
-	poetry install
-
 bump:
 	poetry version prerelease
 
@@ -10,7 +7,7 @@ build:
 	rm -rf dist
 	poetry build
 
-pipx:
+install:
 	-pipx uninstall "$(shell poetry version | awk '{print $$1}')"
 	pipx install --force "$(shell ls -d dist/*.whl)"
 
