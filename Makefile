@@ -45,6 +45,7 @@ apply-refresh:
 
 get:
 	poetry run cdktf get
+	amanibhavam/cdk/__init__.py
 	git add */cdk
 	pre-commit
 	git add */cdk
