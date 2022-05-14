@@ -1,10 +1,20 @@
 """ Organization for katt@defn.sh """
 
+import json
+import os
+from email import contentmanager
+
+context = {
+    "excludeStackIdFromLogicalIds": True,
+    "allowSepCharsInLogicalIds": True
+}
+os.environ.setdefault("CDKTF_CONTEXT_JSON", json.dumps(context))
+
 from cdktf import App, TerraformStack
+from cdktf_cdktf_provider_aws import AwsProvider  # type: ignore
 from constructs import Construct
 
 import amanibhavam.fogg
-from cdktf_cdktf_provider_aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
