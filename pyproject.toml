@@ -7,7 +7,7 @@ authors = ["Amanibhavam <iam@defn.sh>"]
 packages = [
     { include = "amanibhavam" },
     { include = "fogg" },
-    { include = "imports" }
+    { include = "imports/**/*.py" }
 ]
 
 [tool.poetry.dependencies]
