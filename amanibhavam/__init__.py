@@ -4,7 +4,7 @@ from cdktf import App, TerraformStack
 from constructs import Construct
 
 import amanibhavam.fogg
-from amanibhavam.cdktf.aws import AwsProvider  # type: ignore
+from amanibhavam.cdk.aws import AwsProvider  # type: ignore
 
 
 class KattStack(TerraformStack):
