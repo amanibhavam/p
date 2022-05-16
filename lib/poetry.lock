@@ -1,6 +1,6 @@
 [[package]]
 name = "amanibhavam"
-version = "0.1.6"
+version = "0.1.10"
 description = ""
 category = "main"
 optional = false
@@ -9,6 +9,7 @@ python-versions = ">=3.8,<4.0"
 [package.dependencies]
 cdktf = ">=0.10.4,<0.11.0"
 cdktf-cdktf-provider-aws = ">=7.0.55,<8.0.0"
+cdktf-cdktf-provider-null = ">=0.6.54,<0.7.0"
 
 [[package]]
 name = "attrs"
@@ -53,6 +54,20 @@ publication = ">=0.0.3"
 name = "cdktf-cdktf-provider-aws"
 version = "7.0.56"
 description = "Prebuilt aws Provider for Terraform CDK (cdktf)"
+category = "main"
+optional = false
+python-versions = "~=3.7"
+
+[package.dependencies]
+cdktf = ">=0.10.3,<0.11.0"
+constructs = ">=10.0.0,<11.0.0"
+jsii = ">=1.58.0,<2.0.0"
+publication = ">=0.0.3"
+
+[[package]]
+name = "cdktf-cdktf-provider-null"
+version = "0.6.54"
+description = "Prebuilt null Provider for Terraform CDK (cdktf)"
 category = "main"
 optional = false
 python-versions = "~=3.7"
@@ -138,12 +153,11 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "24d66e889c400cd0e8d4a62bf91978652edb62746a774e0eca41004b221a9d26"
+content-hash = "863043586bf24455a27a6bfd73f35647921ce8ad10ab99332ee75a937c8d03f3"
 
 [metadata.files]
 amanibhavam = [
-    {file = "amanibhavam-0.1.6-py3-none-any.whl", hash = "sha256:79dfbe7c169dfa819ab9850484ac907b2dcd1ea618bf05ea2b8128ae343680d1"},
-    {file = "amanibhavam-0.1.6.tar.gz", hash = "sha256:f19868bac0f558c5e96d6991ec54d908213118fe0b0ade9e2a9bed0ec0a3cb9e"},
+    {file = "amanibhavam-0.1.10-py3-none-any.whl", hash = "sha256:ba6496caa4b23a2e9dab89a213e55e69328d05f816a455d66a86930077479b07"},
 ]
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
@@ -160,6 +174,10 @@ cdktf = [
 cdktf-cdktf-provider-aws = [
     {file = "cdktf-cdktf-provider-aws-7.0.56.tar.gz", hash = "sha256:4574ccae2517dc793b76378b31e8058a4b5b7d71701abf671eac37597f00dc29"},
     {file = "cdktf_cdktf_provider_aws-7.0.56-py3-none-any.whl", hash = "sha256:d13672aabf798e2210b3831bcd9cef6d61408645274bba92a78270c996ab7f06"},
+]
+cdktf-cdktf-provider-null = [
+    {file = "cdktf-cdktf-provider-null-0.6.54.tar.gz", hash = "sha256:bc12a926352c78f50477c1d267638baccbf048a71f5f867499f7884c9ed51032"},
+    {file = "cdktf_cdktf_provider_null-0.6.54-py3-none-any.whl", hash = "sha256:c431db87fbc4f026ffbf9421768e76ff3a0d7918bd560f97de3e498e013defa5"},
 ]
 constructs = [
     {file = "constructs-10.1.7-py3-none-any.whl", hash = "sha256:d94ba603f23e30cce98b30067ef95147f32285591d41fdbfbc9ab15fb1c40762"},

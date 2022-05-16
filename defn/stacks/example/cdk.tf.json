@@ -1,0 +1,50 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "example",
+      "version": "0.10.4"
+    },
+    "outputs": {
+    }
+  },
+  "provider": {
+    "null": [
+      {
+      }
+    ]
+  },
+  "resource": {
+    "null_resource": {
+      "ex1": {
+        "//": {
+          "metadata": {
+            "path": "example/ex1",
+            "uniqueId": "ex1"
+          }
+        }
+      },
+      "ex2": {
+        "//": {
+          "metadata": {
+            "path": "example/ex2",
+            "uniqueId": "ex2"
+          }
+        }
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/home/ubuntu/terraform.example.tfstate"
+      }
+    },
+    "required_providers": {
+      "null": {
+        "source": "null",
+        "version": "2.1.2"
+      }
+    }
+  }
+}

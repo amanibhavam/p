@@ -1,4 +1,4 @@
-from amanibhavam import AwsOrganizationStack
+from amanibhavam import AwsOrganizationStack, NullStack
 from cdktf import App
 
 
@@ -7,6 +7,7 @@ def main():
 
     AwsOrganizationStack(app, "kitt", "kitt", "defn.sh", "us-west-2")
     AwsOrganizationStack(app, "katt", "katt", "defn.sh", "us-west-2")
+    NullStack(app, "example")
 
     app.synth()
 

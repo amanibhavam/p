@@ -6,6 +6,10 @@ FROM lib+platform
 
 ARG stack
 
+venv:
+    RUN tar cvfz venv.tar.gz "$(~/bin/e poetry env info -p)"
+    SAVE ARTIFACT venv.tar.gz AS LOCAL venv.tar.gz
+
 synth:
     DO lib+CDKTF_SYNTH
 

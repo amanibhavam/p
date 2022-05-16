@@ -6,9 +6,7 @@ version = "0.0.1"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-cdktf = "^0.10.4"
-cdktf-cdktf-provider-aws = "^7.0.55"
-amanibhavam = "^0.1.6"
+amanibhavam = "^0.1.10"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

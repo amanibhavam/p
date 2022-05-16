@@ -39,8 +39,22 @@ publication = ">=0.0.3"
 
 [[package]]
 name = "cdktf-cdktf-provider-aws"
-version = "7.0.55"
+version = "7.0.56"
 description = "Prebuilt aws Provider for Terraform CDK (cdktf)"
+category = "main"
+optional = false
+python-versions = "~=3.7"
+
+[package.dependencies]
+cdktf = ">=0.10.3,<0.11.0"
+constructs = ">=10.0.0,<11.0.0"
+jsii = ">=1.58.0,<2.0.0"
+publication = ">=0.0.3"
+
+[[package]]
+name = "cdktf-cdktf-provider-null"
+version = "0.6.54"
+description = "Prebuilt null Provider for Terraform CDK (cdktf)"
 category = "main"
 optional = false
 python-versions = "~=3.7"
@@ -126,7 +140,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "21ba341356e41a3324e1def00a2534cb1db1c7b723ff5a59f67288ff777dcfef"
+content-hash = "1c0daef15dc975f3bb512b8b6a6e62809a068d6ae77eaa7dac9502d7659f7545"
 
 [metadata.files]
 attrs = [
@@ -142,8 +156,12 @@ cdktf = [
     {file = "cdktf-0.10.4.tar.gz", hash = "sha256:044eeececeac0cc4682275e54b6056a514480e0769e4dddad885102b3114f4eb"},
 ]
 cdktf-cdktf-provider-aws = [
-    {file = "cdktf-cdktf-provider-aws-7.0.55.tar.gz", hash = "sha256:0a71167641b8f13e25f07a5772abc7b6cd86ab9e3c609edb4a0a3bfbd92717a1"},
-    {file = "cdktf_cdktf_provider_aws-7.0.55-py3-none-any.whl", hash = "sha256:e6f7f5ca63d45630145218912a3ec0890b2f260cc2a5d5660c0bc245262ed954"},
+    {file = "cdktf-cdktf-provider-aws-7.0.56.tar.gz", hash = "sha256:4574ccae2517dc793b76378b31e8058a4b5b7d71701abf671eac37597f00dc29"},
+    {file = "cdktf_cdktf_provider_aws-7.0.56-py3-none-any.whl", hash = "sha256:d13672aabf798e2210b3831bcd9cef6d61408645274bba92a78270c996ab7f06"},
+]
+cdktf-cdktf-provider-null = [
+    {file = "cdktf-cdktf-provider-null-0.6.54.tar.gz", hash = "sha256:bc12a926352c78f50477c1d267638baccbf048a71f5f867499f7884c9ed51032"},
+    {file = "cdktf_cdktf_provider_null-0.6.54-py3-none-any.whl", hash = "sha256:c431db87fbc4f026ffbf9421768e76ff3a0d7918bd560f97de3e498e013defa5"},
 ]
 constructs = [
     {file = "constructs-10.1.7-py3-none-any.whl", hash = "sha256:d94ba603f23e30cce98b30067ef95147f32285591d41fdbfbc9ab15fb1c40762"},
