@@ -5,7 +5,8 @@
       "stackName": "kitt",
       "version": "0.10.4"
     },
-    "outputs": {}
+    "outputs": {
+    }
   },
   "data": {
     "aws_identitystore_group": {
@@ -210,7 +211,10 @@
           "sso.amazonaws.com",
           "tagpolicies.tag.amazonaws.com"
         ],
-        "enabled_policy_types": ["SERVICE_CONTROL_POLICY", "TAG_POLICY"],
+        "enabled_policy_types": [
+          "SERVICE_CONTROL_POLICY",
+          "TAG_POLICY"
+        ],
         "feature_set": "ALL"
       }
     },

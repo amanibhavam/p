@@ -9,12 +9,12 @@ CDKTF_SYNTH:
     RUN ~/bin/e poetry install
     COPY main.py .
     RUN ~/bin/e poetry run python -m main
-    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
     SAVE ARTIFACT cdktf.out/stacks AS LOCAL stacks
+    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
 
 POETRY_UPDATE:
     COMMAND
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry update
-    SAVE IMAGE --push registry.fly.io/defn:test_update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE IMAGE --push registry.fly.io/defn:test_update
