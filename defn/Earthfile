@@ -10,24 +10,21 @@ venv:
     RUN tar cvfz venv.tar.gz "$(~/bin/e poetry env info -p)"
     SAVE ARTIFACT venv.tar.gz AS LOCAL venv.tar.gz
 
+update:
+    FROM lib+platform
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
+
 synth:
-    COPY main.py .
-    RUN ~/bin/e poetry run python -m main
-    SAVE ARTIFACT cdktf.out/stacks AS LOCAL stacks
-    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
+    DO lib+CDKTF_SYNTH
 
 init:
-    ARG stack
-    COPY stacks/${stack} .
-    RUN ~/bin/e terraform init
-    SAVE IMAGE --push registry.fly.io/defn:test_init_${stack}
+    DO lib+TERRAFORM_INIT
 
 plan:
     FROM +init --stack=${stack}
-    RUN ~/bin/e terraform plan -out=.plan
-    SAVE ARTIFACT .plan AS LOCAL .plan
+    DO lib+TERRAFORM_PLAN
 
 apply:
     FROM +init --stack=${stack}
-    COPY .plan .
-    RUN ~/bin/e terraform apply .plan
+    DO lib+TERRAFORM_APPLY

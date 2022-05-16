@@ -18,3 +18,4 @@ POETRY_UPDATE:
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
