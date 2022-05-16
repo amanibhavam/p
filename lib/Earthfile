@@ -30,5 +30,5 @@ POETRY_UPDATE:
     COMMAND
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry update
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT poetry.lock AS LOCAL _/poetry.lock
     SAVE IMAGE --push registry.fly.io/defn:test_update
