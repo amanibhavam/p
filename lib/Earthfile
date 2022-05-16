@@ -9,7 +9,7 @@ CDKTF_SYNTH:
     RUN ~/bin/e poetry install
     COPY main.py .
     RUN ~/bin/e poetry run python -m main
-    SAVE ARTIFACT cdktf.out/stacks AS LOCAL o/stacks
+    SAVE ARTIFACT cdktf.out/stacks AS LOCAL _/stacks
     SAVE IMAGE --push registry.fly.io/defn:test_cdktf
 
 TERRAFORM_INIT:
