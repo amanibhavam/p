@@ -19,3 +19,7 @@ init:
 plan:
     FROM +init --stack=${stack}
     DO lib+TERRAFORM_PLAN
+
+apply:
+    FROM +init --stack=${stack}
+    DO lib+TERRAFORM_APPLY
