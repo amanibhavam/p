@@ -4,8 +4,5 @@ IMPORT ../lib AS lib
 
 FROM lib+base
 
-cdktf:
+synth:
     DO lib+CDKTF_SYNTH
-
-update:
-    DO lib+POETRY_UPDATE
