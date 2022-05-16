@@ -1,6 +1,6 @@
 VERSION 0.6
 
-IMPORT ./lib AS lib
+IMPORT ../lib AS lib
 
 FROM lib+platform
 

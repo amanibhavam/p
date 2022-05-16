@@ -18,27 +18,3 @@ POETRY_UPDATE:
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
-
-CDKTF_SYNTH:
-    COMMAND
-    COPY main.py .
-    RUN ~/bin/e poetry run python -m main
-    SAVE ARTIFACT cdktf.out/stacks AS LOCAL stacks
-    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
-
-TERRAFORM_INIT:
-    COMMAND
-    ARG stack
-    COPY stacks/${stack} .
-    RUN ~/bin/e terraform init
-    SAVE IMAGE --push registry.fly.io/defn:test_init_${stack}
-
-TERRAFORM_PLAN:
-    COMMAND
-    RUN ~/bin/e terraform plan -out=.plan
-    SAVE ARTIFACT .plan AS LOCAL .plan
-
-TERRAFORM_APPLY:
-    COMMAND
-    COPY .plan .
-    RUN ~/bin/e terraform apply .plan
