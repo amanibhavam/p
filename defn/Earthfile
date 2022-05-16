@@ -6,3 +6,10 @@ FROM lib+base
 
 synth:
     DO lib+CDKTF_SYNTH
+
+init:
+    DO lib+TERRAFORM_INIT
+
+plan:
+    FROM +init
+    DO lib+TERRAFORM_PLAN
