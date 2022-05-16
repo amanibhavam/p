@@ -2,11 +2,21 @@ VERSION 0.6
 
 FROM registry.fly.io/defn:dev-tower
 
-CDKTF_SYNTH:
-    COMMAND
+platform:
     RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry install
+    SAVE IMAGE --push registry.fly.io/defn:test_platform
+
+platformUpdate:
+    FROM +platform
+    COPY pyproject.toml poetry.lock .
+    RUN ~/bin/e poetry update
+    SAVE ARTIFACT poetry.lock AS LOCAL _/poetry.lock
+    SAVE IMAGE --push registry.fly.io/defn:test_platform_update
+
+CDKTF_SYNTH:
+    COMMAND
     COPY main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out/stacks AS LOCAL _/stacks
@@ -15,20 +25,11 @@ CDKTF_SYNTH:
 TERRAFORM_INIT:
     COMMAND
     ARG stack
-    COPY stacks/${stack}/* .
+    COPY _/stacks/${stack} .
     RUN ~/bin/e terraform init
     SAVE IMAGE --push registry.fly.io/defn:test_init
 
 TERRAFORM_PLAN:
     COMMAND
-    ARG stack
-    COPY stacks/${stack}/* .
-    RUN ~/bin/e terraform init
-    SAVE IMAGE --push registry.fly.io/defn:test_init
-
-POETRY_UPDATE:
-    COMMAND
-    COPY pyproject.toml poetry.lock .
-    RUN ~/bin/e poetry update
-    SAVE ARTIFACT poetry.lock AS LOCAL _/poetry.lock
-    SAVE IMAGE --push registry.fly.io/defn:test_update
+    RUN ~/bin/e terraform plan
+    SAVE IMAGE --push registry.fly.io/defn:test_plan

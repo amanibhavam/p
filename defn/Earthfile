@@ -2,14 +2,16 @@ VERSION 0.6
 
 IMPORT ../lib AS lib
 
-FROM lib+base
+FROM lib+platform
+
+ARG stack
 
 synth:
     DO lib+CDKTF_SYNTH
 
 init:
-    DO lib+TERRAFORM_INIT
+    DO lib+TERRAFORM_INIT --stack=${stack}
 
 plan:
-    FROM +init
+    FROM +init --stack=${stack}
     DO lib+TERRAFORM_PLAN
