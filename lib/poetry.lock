@@ -80,7 +80,7 @@ publication = ">=0.0.3"
 
 [[package]]
 name = "constructs"
-version = "10.1.7"
+version = "10.1.8"
 description = "A programming model for software-defined state"
 category = "main"
 optional = false
@@ -180,8 +180,8 @@ cdktf-cdktf-provider-null = [
     {file = "cdktf_cdktf_provider_null-0.6.54-py3-none-any.whl", hash = "sha256:c431db87fbc4f026ffbf9421768e76ff3a0d7918bd560f97de3e498e013defa5"},
 ]
 constructs = [
-    {file = "constructs-10.1.7-py3-none-any.whl", hash = "sha256:d94ba603f23e30cce98b30067ef95147f32285591d41fdbfbc9ab15fb1c40762"},
-    {file = "constructs-10.1.7.tar.gz", hash = "sha256:e2f8d906c68fac3af878ceceb69d8f76945e8727c875fc7dab81640dad1cb1f2"},
+    {file = "constructs-10.1.8-py3-none-any.whl", hash = "sha256:bc035a55a2ff05a8b1c28d9c65349ab20ccb2943c729734c902d9be1e407864e"},
+    {file = "constructs-10.1.8.tar.gz", hash = "sha256:ad8e46bd0f169955d5fc8919fc5efeb2528f7d34e747093c439a7998b7c3e2cc"},
 ]
 exceptiongroup = [
     {file = "exceptiongroup-1.0.0rc5-py3-none-any.whl", hash = "sha256:295a9d7847f9ad08267f47c701a676ec70a64200a360dd49eb513f72209b09f4"},
