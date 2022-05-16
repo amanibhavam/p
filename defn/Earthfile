@@ -1,4 +1,4 @@
-VERSION 0.6
+VERSION --parallel-load 0.6
 
 IMPORT ../lib AS lib
 
