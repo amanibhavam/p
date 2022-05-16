@@ -31,7 +31,7 @@ TERRAFORM_INIT:
     ARG stack
     COPY stacks/${stack} .
     RUN ~/bin/e terraform init
-    SAVE IMAGE --push registry.fly.io/defn:test_init
+    SAVE IMAGE --push registry.fly.io/defn:test_init_${stack}
 
 TERRAFORM_PLAN:
     COMMAND
