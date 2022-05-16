@@ -2,18 +2,17 @@
   "//": {
     "metadata": {
       "backend": "local",
-      "stackName": "katt",
+      "stackName": "kitt",
       "version": "0.10.4"
     },
-    "outputs": {
-    }
+    "outputs": {}
   },
   "data": {
     "aws_identitystore_group": {
       "administrators_sso_group": {
         "//": {
           "metadata": {
-            "path": "katt/administrators_sso_group",
+            "path": "kitt/administrators_sso_group",
             "uniqueId": "administrators_sso_group"
           }
         },
@@ -30,7 +29,7 @@
       "sso_instance": {
         "//": {
           "metadata": {
-            "path": "katt/sso_instance",
+            "path": "kitt/sso_instance",
             "uniqueId": "sso_instance"
           }
         }
@@ -49,11 +48,11 @@
       "dev": {
         "//": {
           "metadata": {
-            "path": "katt/dev",
+            "path": "kitt/dev",
             "uniqueId": "dev"
           }
         },
-        "email": "katt+dev@defn.sh",
+        "email": "kitt+dev@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "dev",
         "role_name": "OrganizationAccountAccessRole",
@@ -64,11 +63,11 @@
       "dmz": {
         "//": {
           "metadata": {
-            "path": "katt/dmz",
+            "path": "kitt/dmz",
             "uniqueId": "dmz"
           }
         },
-        "email": "katt+dmz@defn.sh",
+        "email": "kitt+dmz@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "dmz",
         "role_name": "OrganizationAccountAccessRole",
@@ -79,11 +78,11 @@
       "hub": {
         "//": {
           "metadata": {
-            "path": "katt/hub",
+            "path": "kitt/hub",
             "uniqueId": "hub"
           }
         },
-        "email": "katt+hub@defn.sh",
+        "email": "kitt+hub@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "hub",
         "role_name": "OrganizationAccountAccessRole",
@@ -94,11 +93,11 @@
       "lib": {
         "//": {
           "metadata": {
-            "path": "katt/lib",
+            "path": "kitt/lib",
             "uniqueId": "lib"
           }
         },
-        "email": "katt+lib@defn.sh",
+        "email": "kitt+lib@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "lib",
         "role_name": "OrganizationAccountAccessRole",
@@ -109,11 +108,11 @@
       "log": {
         "//": {
           "metadata": {
-            "path": "katt/log",
+            "path": "kitt/log",
             "uniqueId": "log"
           }
         },
-        "email": "katt+log@defn.sh",
+        "email": "kitt+log@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "log",
         "role_name": "OrganizationAccountAccessRole",
@@ -124,11 +123,11 @@
       "net": {
         "//": {
           "metadata": {
-            "path": "katt/net",
+            "path": "kitt/net",
             "uniqueId": "net"
           }
         },
-        "email": "katt+net@defn.sh",
+        "email": "kitt+net@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "net",
         "role_name": "OrganizationAccountAccessRole",
@@ -139,11 +138,11 @@
       "ops": {
         "//": {
           "metadata": {
-            "path": "katt/ops",
+            "path": "kitt/ops",
             "uniqueId": "ops"
           }
         },
-        "email": "katt+ops@defn.sh",
+        "email": "kitt+ops@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "ops",
         "role_name": "OrganizationAccountAccessRole",
@@ -154,11 +153,11 @@
       "org": {
         "//": {
           "metadata": {
-            "path": "katt/org",
+            "path": "kitt/org",
             "uniqueId": "org"
           }
         },
-        "email": "katt+org@defn.sh",
+        "email": "kitt+org@defn.sh",
         "name": "org",
         "tags": {
           "ManagedBy": "Terraform"
@@ -167,11 +166,11 @@
       "pub": {
         "//": {
           "metadata": {
-            "path": "katt/pub",
+            "path": "kitt/pub",
             "uniqueId": "pub"
           }
         },
-        "email": "katt+pub@defn.sh",
+        "email": "kitt+pub@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "pub",
         "role_name": "OrganizationAccountAccessRole",
@@ -182,11 +181,11 @@
       "sec": {
         "//": {
           "metadata": {
-            "path": "katt/sec",
+            "path": "kitt/sec",
             "uniqueId": "sec"
           }
         },
-        "email": "katt+sec@defn.sh",
+        "email": "kitt+sec@defn.sh",
         "iam_user_access_to_billing": "ALLOW",
         "name": "sec",
         "role_name": "OrganizationAccountAccessRole",
@@ -199,7 +198,7 @@
       "organization": {
         "//": {
           "metadata": {
-            "path": "katt/organization",
+            "path": "kitt/organization",
             "uniqueId": "organization"
           }
         },
@@ -211,10 +210,7 @@
           "sso.amazonaws.com",
           "tagpolicies.tag.amazonaws.com"
         ],
-        "enabled_policy_types": [
-          "SERVICE_CONTROL_POLICY",
-          "TAG_POLICY"
-        ],
+        "enabled_policy_types": ["SERVICE_CONTROL_POLICY", "TAG_POLICY"],
         "feature_set": "ALL"
       }
     },
@@ -222,7 +218,7 @@
       "dev_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/dev_admin_sso_account_assignment",
+            "path": "kitt/dev_admin_sso_account_assignment",
             "uniqueId": "dev_admin_sso_account_assignment"
           }
         },
@@ -236,7 +232,7 @@
       "dmz_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/dmz_admin_sso_account_assignment",
+            "path": "kitt/dmz_admin_sso_account_assignment",
             "uniqueId": "dmz_admin_sso_account_assignment"
           }
         },
@@ -250,7 +246,7 @@
       "hub_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/hub_admin_sso_account_assignment",
+            "path": "kitt/hub_admin_sso_account_assignment",
             "uniqueId": "hub_admin_sso_account_assignment"
           }
         },
@@ -264,7 +260,7 @@
       "lib_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/lib_admin_sso_account_assignment",
+            "path": "kitt/lib_admin_sso_account_assignment",
             "uniqueId": "lib_admin_sso_account_assignment"
           }
         },
@@ -278,7 +274,7 @@
       "log_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/log_admin_sso_account_assignment",
+            "path": "kitt/log_admin_sso_account_assignment",
             "uniqueId": "log_admin_sso_account_assignment"
           }
         },
@@ -292,7 +288,7 @@
       "net_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/net_admin_sso_account_assignment",
+            "path": "kitt/net_admin_sso_account_assignment",
             "uniqueId": "net_admin_sso_account_assignment"
           }
         },
@@ -306,7 +302,7 @@
       "ops_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/ops_admin_sso_account_assignment",
+            "path": "kitt/ops_admin_sso_account_assignment",
             "uniqueId": "ops_admin_sso_account_assignment"
           }
         },
@@ -320,7 +316,7 @@
       "org_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/org_admin_sso_account_assignment",
+            "path": "kitt/org_admin_sso_account_assignment",
             "uniqueId": "org_admin_sso_account_assignment"
           }
         },
@@ -334,7 +330,7 @@
       "pub_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/pub_admin_sso_account_assignment",
+            "path": "kitt/pub_admin_sso_account_assignment",
             "uniqueId": "pub_admin_sso_account_assignment"
           }
         },
@@ -348,7 +344,7 @@
       "sec_admin_sso_account_assignment": {
         "//": {
           "metadata": {
-            "path": "katt/sec_admin_sso_account_assignment",
+            "path": "kitt/sec_admin_sso_account_assignment",
             "uniqueId": "sec_admin_sso_account_assignment"
           }
         },
@@ -364,7 +360,7 @@
       "admin_sso_managed_policy_attachment": {
         "//": {
           "metadata": {
-            "path": "katt/admin_sso_managed_policy_attachment",
+            "path": "kitt/admin_sso_managed_policy_attachment",
             "uniqueId": "admin_sso_managed_policy_attachment"
           }
         },
@@ -377,7 +373,7 @@
       "admin_sso_permission_set": {
         "//": {
           "metadata": {
-            "path": "katt/admin_sso_permission_set",
+            "path": "kitt/admin_sso_permission_set",
             "uniqueId": "admin_sso_permission_set"
           }
         },
@@ -393,7 +389,7 @@
   "terraform": {
     "backend": {
       "local": {
-        "path": "/mnt/work/p/defn/terraform.katt.tfstate"
+        "path": "/home/ubuntu/terraform.kitt.tfstate"
       }
     },
     "required_providers": {

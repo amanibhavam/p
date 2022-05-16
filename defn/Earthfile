@@ -1,0 +1,18 @@
+VERSION 0.6
+
+FROM registry.fly.io/defn:dev-tower
+
+cdktf:
+    RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
+    COPY pyproject.toml poetry.lock .
+    RUN ~/bin/e poetry install
+    COPY main.py .
+    RUN ~/bin/e poetry run python -m main
+    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
+    SAVE ARTIFACT cdktf.out/stacks AS LOCAL stacks
+
+update:
+    COPY pyproject.toml poetry.lock .
+    RUN ~/bin/e poetry update
+    SAVE IMAGE --push registry.fly.io/defn:test_update
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock

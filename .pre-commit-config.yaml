@@ -4,7 +4,7 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
-        exclude: cdktf.out
+        exclude: "cdktf.out|stacks"
       - id: check-json
       - id: check-yaml
 
@@ -22,7 +22,7 @@ repos:
     rev: v2.5.1
     hooks:
       - id: prettier
-        exclude: cdktf.out
+        exclude: "cdktf.out|stacks"
 
   - repo: local
     hooks:
