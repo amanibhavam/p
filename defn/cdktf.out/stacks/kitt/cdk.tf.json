@@ -393,7 +393,7 @@
   "terraform": {
     "backend": {
       "local": {
-        "path": "/home/ubuntu/terraform.kitt.tfstate"
+        "path": "./terraform.tfstate"
       }
     },
     "required_providers": {

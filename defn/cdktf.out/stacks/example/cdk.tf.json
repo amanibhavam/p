@@ -37,7 +37,7 @@
   "terraform": {
     "backend": {
       "local": {
-        "path": "/home/ubuntu/terraform.example.tfstate"
+        "path": "./terraform.tfstate"
       }
     },
     "required_providers": {
