@@ -1,10 +1,16 @@
-VERSION --parallel-load 0.6
+VERSION --parallel-load --shell-out-anywhere --use-chmod  0.6
 
 IMPORT ../lib AS lib
 
 FROM lib+platform
 
 ARG stack
+
+platform:
+    FROM registry.fly.io/defn:dev-tower
+    RUN echo 1
+    RUN echo 2
+    SAVE IMAGE --push registry.fly.io/defn:p_defn_platform
 
 update:
     DO lib+PROJECT_UPDATE
