@@ -26,12 +26,6 @@ plan:
     FROM +init --stack=${stack}
     DO lib+TERRAFORM_PLAN --stack=${stack}
 
-check:
-    BUILD +init --stack=kitt
-    BUILD +init --stack=katt
-    BUILD +init --stack=example
-    BUILD +plan --stack=example
-
 apply:
     FROM +init --stack=${stack}
     DO lib+TERRAFORM_APPLY --stack=${stack}

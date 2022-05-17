@@ -38,11 +38,14 @@ TERRAFORM_INIT:
 TERRAFORM_PLAN:
     COMMAND
     ARG stack
+    COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
     RUN ~/bin/e terraform plan -out=.plan
     SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.plan
 
 TERRAFORM_APPLY:
     COMMAND
     ARG stack
+    COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
     COPY cdktf.out/stacks/${stack}/.plan .
     RUN --push ~/bin/e terraform apply .plan
+    SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
