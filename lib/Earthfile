@@ -15,7 +15,7 @@ update:
 POETRY_UPDATE:
     COMMAND
     COPY pyproject.toml poetry.lock .
-    RUN ~/bin/e poetry update
+    RUN --no-cache ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
     SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
 
@@ -42,12 +42,12 @@ TERRAFORM_PLAN:
     COMMAND
     ARG stack
     COPY cdktf.out/stacks/${stack} .
-    RUN --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
+    RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
     SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.plan
 
 TERRAFORM_APPLY:
     COMMAND
     ARG stack
     COPY cdktf.out/stacks/${stack} .
-    RUN --push ~/bin/e terraform apply .plan
+    RUN --no-cache --secret DIGITALOCEAN_TOKEN --push ~/bin/e terraform apply .plan
     SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
