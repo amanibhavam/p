@@ -16,6 +16,9 @@ test:
 update:
     DO lib+PROJECT_UPDATE
 
+poetryUpdate:
+    DO lib+POETRY_UPDATE
+
 synth:
     DO lib+CDKTF_SYNTH
 
