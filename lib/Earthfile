@@ -6,7 +6,6 @@ platform:
     RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry install
-    SAVE IMAGE --push registry.fly.io/defn:test_platform
 
 update:
     COPY pyproject.toml poetry.lock .
@@ -31,7 +30,6 @@ CDKTF_SYNTH:
     COPY main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
-    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
 
 TERRAFORM_INIT:
     COMMAND
@@ -39,7 +37,6 @@ TERRAFORM_INIT:
     COPY cdktf.out/stacks/${stack} .
     RUN ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl AS LOCAL cdktf.out/stacks/${stack}/.terraform.lock.hcl
-    SAVE IMAGE --push registry.fly.io/defn:test_init_${stack}
 
 TERRAFORM_PLAN:
     COMMAND

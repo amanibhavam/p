@@ -1,4 +1,4 @@
-VERSION --parallel-load --shell-out-anywhere --use-chmod 0.6
+VERSION --parallel-load --shell-out-anywhere --use-chmod --use-host-command 0.6
 # --use-registry-for-with-docker
 
 IMPORT ../lib AS lib
@@ -7,11 +7,11 @@ FROM lib+platform
 
 ARG stack
 
-platform:
+test:
     FROM registry.fly.io/defn:dev-tower
     RUN --secret meh echo $meh
     RUN --secret feh echo $feh
-    SAVE IMAGE --push registry.fly.io/defn:p_defn_platform
+    SAVE IMAGE --push registry.fly.io/docker:cache-test
 
 update:
     DO lib+PROJECT_UPDATE
