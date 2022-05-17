@@ -20,6 +20,12 @@ POETRY_UPDATE:
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
     SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
 
+PROJECT_UPDATE:
+    COMMAND
+    SAVE ARTIFACT cdktf.json AS LOCAL cdktf.json
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
+
 CDKTF_SYNTH:
     COMMAND
     COPY main.py .

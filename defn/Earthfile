@@ -6,15 +6,8 @@ FROM lib+platform
 
 ARG stack
 
-venv:
-    RUN tar cvfz venv.tar.gz "$(~/bin/e poetry env info -p)"
-    SAVE ARTIFACT venv.tar.gz AS LOCAL venv.tar.gz
-
 update:
-    FROM lib+platform
-    SAVE ARTIFACT cdktf.json AS LOCAL cdktf.json
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
-    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
+    DO lib+PROJECT_UPDATE
 
 synth:
     DO lib+CDKTF_SYNTH
