@@ -2,7 +2,7 @@
 name = "amanibhavam"
 description = ""
 authors = ["Amanibhavam <iam@defn.sh>"]
-version = "0.1.10"
+version = "0.1.11"
 
 [tool.poetry.dependencies]
 python = "^3.8"
