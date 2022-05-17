@@ -12,6 +12,7 @@ venv:
 
 update:
     FROM lib+platform
+    SAVE ARTIFACT cdktf.json AS LOCAL cdktf.json
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
     SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
 
@@ -19,12 +20,12 @@ synth:
     DO lib+CDKTF_SYNTH
 
 init:
-    DO lib+TERRAFORM_INIT
+    DO lib+TERRAFORM_INIT --stack=${stack}
 
 plan:
     FROM +init --stack=${stack}
-    DO lib+TERRAFORM_PLAN
+    DO lib+TERRAFORM_PLAN --stack=${stack}
 
 apply:
     FROM +init --stack=${stack}
-    DO lib+TERRAFORM_APPLY
+    DO lib+TERRAFORM_APPLY --stack=${stack}

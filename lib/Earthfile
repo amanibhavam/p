@@ -19,3 +19,30 @@ POETRY_UPDATE:
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
     SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
+
+CDKTF_SYNTH:
+    COMMAND
+    COPY main.py .
+    RUN ~/bin/e poetry run python -m main
+    SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
+    SAVE IMAGE --push registry.fly.io/defn:test_cdktf
+
+TERRAFORM_INIT:
+    COMMAND
+    ARG stack
+    COPY cdktf.out/stacks/${stack} .
+    RUN ~/bin/e terraform init
+    SAVE ARTIFACT .terraform.lock.hcl AS LOCAL cdktf.out/stacks/${stack}/.terraform.lock.hcl
+    SAVE IMAGE --push registry.fly.io/defn:test_init_${stack}
+
+TERRAFORM_PLAN:
+    COMMAND
+    ARG stack
+    RUN ~/bin/e terraform plan -out=.plan
+    SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.plan
+
+TERRAFORM_APPLY:
+    COMMAND
+    ARG stack
+    COPY cdktf.out/stacks/${stack}/.plan .
+    RUN --push ~/bin/e terraform apply .plan

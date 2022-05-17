@@ -1,0 +1,5 @@
+{
+  "language": "python",
+  "app": "poetry run python -m main",
+  "projectId": "df284010-e56f-4bac-9689-45fb6d62082e"
+}
