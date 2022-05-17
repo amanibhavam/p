@@ -45,7 +45,7 @@ TERRAFORM_PLAN:
     COMMAND
     ARG stack
     COPY cdktf.out/stacks/${stack} .
-    RUN ~/bin/e terraform plan -out=.plan
+    RUN --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
     SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.plan
 
 TERRAFORM_APPLY:

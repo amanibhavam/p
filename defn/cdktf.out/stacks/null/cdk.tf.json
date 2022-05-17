@@ -1,0 +1,50 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "null",
+      "version": "0.10.4"
+    },
+    "outputs": {
+    }
+  },
+  "provider": {
+    "null": [
+      {
+      }
+    ]
+  },
+  "resource": {
+    "null_resource": {
+      "ex1": {
+        "//": {
+          "metadata": {
+            "path": "null/ex1",
+            "uniqueId": "ex1"
+          }
+        }
+      },
+      "ex2": {
+        "//": {
+          "metadata": {
+            "path": "null/ex2",
+            "uniqueId": "ex2"
+          }
+        }
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "./terraform.tfstate"
+      }
+    },
+    "required_providers": {
+      "null": {
+        "source": "null",
+        "version": "2.1.2"
+      }
+    }
+  }
+}

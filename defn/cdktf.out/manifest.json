@@ -1,6 +1,14 @@
 {
   "version": "0.10.4",
   "stacks": {
+    "null": {
+      "name": "null",
+      "constructPath": "null",
+      "workingDirectory": "stacks/null",
+      "synthesizedStackPath": "stacks/null/cdk.tf.json",
+      "annotations": [],
+      "dependencies": []
+    },
     "kitt": {
       "name": "kitt",
       "constructPath": "kitt",
@@ -17,11 +25,11 @@
       "annotations": [],
       "dependencies": []
     },
-    "example": {
-      "name": "example",
-      "constructPath": "example",
-      "workingDirectory": "stacks/example",
-      "synthesizedStackPath": "stacks/example/cdk.tf.json",
+    "do": {
+      "name": "do",
+      "constructPath": "do",
+      "workingDirectory": "stacks/do",
+      "synthesizedStackPath": "stacks/do/cdk.tf.json",
       "annotations": [],
       "dependencies": []
     }

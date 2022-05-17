@@ -1,6 +1,6 @@
 [[package]]
 name = "amanibhavam"
-version = "0.1.10"
+version = "0.1.11"
 description = ""
 category = "main"
 optional = false
@@ -9,7 +9,8 @@ python-versions = ">=3.8,<4.0"
 [package.dependencies]
 cdktf = ">=0.10.4,<0.11.0"
 cdktf-cdktf-provider-aws = ">=7.0.55,<8.0.0"
-cdktf-cdktf-provider-null = ">=0.6.54,<0.7.0"
+cdktf-cdktf-provider-digitalocean = ">=0.0.40,<0.0.41"
+cdktf-cdktf-provider-null = ">=0.6.55,<0.7.0"
 
 [[package]]
 name = "attrs"
@@ -62,6 +63,20 @@ python-versions = "~=3.7"
 cdktf = ">=0.10.3,<0.11.0"
 constructs = ">=10.0.0,<11.0.0"
 jsii = ">=1.58.0,<2.0.0"
+publication = ">=0.0.3"
+
+[[package]]
+name = "cdktf-cdktf-provider-digitalocean"
+version = "0.0.40"
+description = "Prebuilt digitalocean Provider for Terraform CDK (cdktf)"
+category = "main"
+optional = false
+python-versions = "~=3.7"
+
+[package.dependencies]
+cdktf = ">=0.10.3,<0.11.0"
+constructs = ">=10.0.0,<11.0.0"
+jsii = ">=1.59.0,<2.0.0"
 publication = ">=0.0.3"
 
 [[package]]
@@ -153,11 +168,11 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "863043586bf24455a27a6bfd73f35647921ce8ad10ab99332ee75a937c8d03f3"
+content-hash = "b3622053c571707f1fc3173555d9d25d976b96bee730382a112e724eb3afb6ae"
 
 [metadata.files]
 amanibhavam = [
-    {file = "amanibhavam-0.1.10-py3-none-any.whl", hash = "sha256:ba6496caa4b23a2e9dab89a213e55e69328d05f816a455d66a86930077479b07"},
+    {file = "amanibhavam-0.1.11-py3-none-any.whl", hash = "sha256:20ec7987f6eae99cef547f22f18c0ab96fcbba3220d9e2030f201aa59fbcf127"},
 ]
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
@@ -174,6 +189,10 @@ cdktf = [
 cdktf-cdktf-provider-aws = [
     {file = "cdktf-cdktf-provider-aws-7.0.56.tar.gz", hash = "sha256:4574ccae2517dc793b76378b31e8058a4b5b7d71701abf671eac37597f00dc29"},
     {file = "cdktf_cdktf_provider_aws-7.0.56-py3-none-any.whl", hash = "sha256:d13672aabf798e2210b3831bcd9cef6d61408645274bba92a78270c996ab7f06"},
+]
+cdktf-cdktf-provider-digitalocean = [
+    {file = "cdktf-cdktf-provider-digitalocean-0.0.40.tar.gz", hash = "sha256:3ae689bd21abfec23a05318b5c4b2b3b98daa3bf508b1eaeef6278cda0494f00"},
+    {file = "cdktf_cdktf_provider_digitalocean-0.0.40-py3-none-any.whl", hash = "sha256:f1b902d2f0229fb634c8fd300338160ab8f82eb80ffd3420468c2cc94ec26374"},
 ]
 cdktf-cdktf-provider-null = [
     {file = "cdktf-cdktf-provider-null-0.6.55.tar.gz", hash = "sha256:7432ec0544c9fd6b188a6d822b3bdb67426f5d4a39c147da26819ca3c5b5fa19"},

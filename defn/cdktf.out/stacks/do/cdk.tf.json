@@ -2,35 +2,28 @@
   "//": {
     "metadata": {
       "backend": "local",
-      "stackName": "example",
+      "stackName": "do",
       "version": "0.10.4"
     },
     "outputs": {
     }
   },
   "provider": {
-    "null": [
+    "digitalocean": [
       {
       }
     ]
   },
   "resource": {
-    "null_resource": {
-      "ex1": {
+    "digitalocean_project": {
+      "project": {
         "//": {
           "metadata": {
-            "path": "example/ex1",
-            "uniqueId": "ex1"
+            "path": "do/project",
+            "uniqueId": "project"
           }
-        }
-      },
-      "ex2": {
-        "//": {
-          "metadata": {
-            "path": "example/ex2",
-            "uniqueId": "ex2"
-          }
-        }
+        },
+        "name": "defn"
       }
     }
   },
@@ -41,9 +34,9 @@
       }
     },
     "required_providers": {
-      "null": {
-        "source": "null",
-        "version": "2.1.2"
+      "digitalocean": {
+        "source": "digitalocean/digitalocean",
+        "version": "2.19.0"
       }
     }
   }
