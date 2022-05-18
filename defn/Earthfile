@@ -11,4 +11,4 @@ meh:
     COPY main.py .
 
 fit:
-    FROM lib+apply --stack=${STACK} --target=meh
+    FROM lib+fit --stack=${STACK} --target=github.com/katt-org/p
