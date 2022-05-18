@@ -12,4 +12,4 @@ main:
     SAVE ARTIFACT main.py
 
 fit:
-    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p+main
+    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p/defn+main
