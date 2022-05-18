@@ -21,8 +21,7 @@ update:
 
 synth:
     FROM lib+platform
-    RUN echo "${main}" | base64 -d > main.py
-    COPY --no-cache ${target}/main.py .
+    COPY ${target}/${script} main.py
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
