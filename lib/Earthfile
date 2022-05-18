@@ -35,7 +35,7 @@ CDKTF_SYNTH:
 TERRAFORM_INIT:
     COMMAND
     ARG stack
-    COPY cdktf.out/stacks/${stack} .
+    COPY cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl AS LOCAL cdktf.out/stacks/${stack}/.terraform.lock.hcl
 
