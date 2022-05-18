@@ -8,7 +8,9 @@ FROM lib+platform
 ARG stack
 
 meh:
+    FROM ubuntu
     COPY main.py .
+    SAVE IMAGE --push registry.fly.io/docker:cache-meh
 
 fit:
-    FROM lib+fit --stack=${STACK} --target=github.com/katt-org/p
+    FROM lib+fit --stack=${STACK} --target=registry.fly.io/docker:cache-meh --prefix=./

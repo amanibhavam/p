@@ -48,7 +48,7 @@ apply:
     SAVE ARTIFACT terraform.tfstate
 
 fit:
-    FROM +apply
+    FROM +apply --stack=${stack} --target=${target}
     SAVE ARTIFACT cdk.tf.json +synth/cdktf.out/stacks/${stack}/cdk.tf.json
     SAVE ARTIFACT .plan +plan/.plan
     SAVE ARTIFACT terraform.tfstate +apply/terraform.tfstate
