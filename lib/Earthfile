@@ -16,10 +16,12 @@ update:
 
 main:
     FROM ${target}
+    ARG prefix
+    SAVE ARTIFACT main.py ${prefix}/main.py
 
 synth:
     FROM +platform
-    COPY (+main/main.py --target=${target}) .
+    COPY (+main/main.py --target=${target} --prefix=${prefix}) .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
