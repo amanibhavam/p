@@ -1,6 +1,7 @@
 VERSION 0.6
 
 ARG target
+ARG stack
 
 platform:
     FROM registry.fly.io/defn:dev-tower
@@ -48,7 +49,7 @@ apply:
     SAVE ARTIFACT terraform.tfstate
 
 fit:
-    FROM +apply --stack=${stack} --target=${target}
+    FROM +apply
     SAVE ARTIFACT cdk.tf.json +synth/cdktf.out/stacks/${stack}/cdk.tf.json
     SAVE ARTIFACT .plan +plan/.plan
     SAVE ARTIFACT terraform.tfstate +apply/terraform.tfstate
