@@ -7,29 +7,8 @@ FROM lib+platform
 
 ARG stack
 
-test:
-    RUN --secret meh echo $meh
-    RUN --secret feh echo $feh
-    SAVE IMAGE --push registry.fly.io/docker:cache-test
+meh:
+    COPY main.py .
 
-warm:
-
-update:
-    DO lib+PROJECT_UPDATE
-
-poetryUpdate:
-    DO lib+POETRY_UPDATE
-
-synth:
-    DO lib+CDKTF_SYNTH
-
-init:
-    DO lib+TERRAFORM_INIT --stack=${stack}
-
-plan:
-    FROM +init --stack=${stack}
-    DO lib+TERRAFORM_PLAN --stack=${stack}
-
-apply:
-    FROM +init --stack=${stack}
-    DO lib+TERRAFORM_APPLY --stack=${stack}
+fit:
+    FROM lib+apply --stack=${STACK} --target=meh

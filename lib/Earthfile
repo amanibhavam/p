@@ -1,8 +1,9 @@
 VERSION 0.6
 
-FROM registry.fly.io/defn:dev-tower
+ARG target
 
 platform:
+    FROM registry.fly.io/defn:dev-tower
     RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
     COPY pyproject.toml poetry.lock .
     RUN md5sum pyproject.toml poetry.lock
@@ -13,44 +14,37 @@ update:
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
-POETRY_UPDATE:
-    COMMAND
-    COPY pyproject.toml poetry.lock .
-    RUN --no-cache ~/bin/e poetry update
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
-    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
-
-PROJECT_UPDATE:
-    COMMAND
-    SAVE ARTIFACT cdktf.json AS LOCAL cdktf.json
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
-    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
-
-CDKTF_SYNTH:
-    COMMAND
-    COPY main.py .
+synth:
+    FROM +platform
+    ARG target
+    COPY +${target}/main.py .
     RUN ~/bin/e poetry run python -m main
-    SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
+    SAVE ARTIFACT cdktf.out
 
-TERRAFORM_INIT:
-    COMMAND
+init:
+    FROM +platform
     ARG stack
-    COPY cdktf.out/stacks/${stack}/cdk.tf.json .
+    COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN ~/bin/e terraform init
-    SAVE ARTIFACT .terraform.lock.hcl AS LOCAL cdktf.out/stacks/${stack}/.terraform.lock.hcl
+    SAVE ARTIFACT .terraform.lock.hcl
 
-TERRAFORM_PLAN:
-    COMMAND
+plan:
+    FROM +init
     ARG stack
-    COPY cdktf.out/stacks/${stack}/cdk.tf.json .
-    COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
+    COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
-    SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.plan
+    SAVE ARTIFACT .plan
 
-TERRAFORM_APPLY:
-    COMMAND
+apply:
+    FROM +init
     ARG stack
-    COPY cdktf.out/stacks/${stack}/.plan .
+    COPY +plan/.plan .
     COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform apply .plan
-    SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
+    SAVE ARTIFACT terraform.tfstate
+
+fit:
+    FROM +apply
+    SAVE ARTIFACT cdk.tf.json +synth/cdktf.out/stacks/${stack}/cdk.tf.json
+    SAVE ARTIFACT .plan +plan/.plan
+    SAVE ARTIFACT terraform.tfstate +apply/terraform.tfstate
