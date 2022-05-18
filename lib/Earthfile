@@ -2,7 +2,7 @@ VERSION 0.6
 
 ARG target
 ARG stack
-ARG prefix
+ARG prefix=./
 
 platform:
     FROM registry.fly.io/defn:dev-tower
