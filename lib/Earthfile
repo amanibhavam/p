@@ -1,5 +1,7 @@
 VERSION 0.6
 
+IMPORT github.com/katt-org/p/lib:master AS lib
+
 ARG stack
 ARG target
 ARG script=main.py
@@ -12,20 +14,20 @@ platform:
     RUN ~/bin/e poetry install
 
 update:
-    FROM +platform
+    FROM lib+platform
     RUN ~/bin/e poetry update
     RUN md5sum pyproject.toml poetry.lock
     SAVE ARTIFACT poetry.lock
 
 synth:
-    FROM +platform
+    FROM lib+platform
     RUN echo "${main}" | base64 -d > main.py
     COPY ${target}/main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
 init:
-    FROM +platform
+    FROM lib+platform
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl
