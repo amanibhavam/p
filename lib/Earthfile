@@ -28,6 +28,7 @@ synth:
 init:
     FROM lib+platform
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
+    RUN --mount=type=cache,target=/home/ubuntu/.terraform.d/plugin-cache sudo chown ubuntu:ubuntu /home/ubuntu/.terraform.d/plugin-cache
     RUN --mount=type=cache,target=/home/ubuntu/.terraform.d/plugin-cache ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl
 
