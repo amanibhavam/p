@@ -13,3 +13,8 @@ main:
 
 fit:
     FROM lib+fit --stack=${stack} --target=github.com/katt-org/p/defn+main
+
+debug:
+    FROM +fit
+    RUN --no-cache df -klh
+    RUN --no-cache find .terraform.d/plugin-cache
