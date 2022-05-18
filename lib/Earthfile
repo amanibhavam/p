@@ -18,6 +18,7 @@ update:
 synth:
     FROM +platform
     RUN echo "${main}" | base64 -d > main.py
+    RUN cat main.py
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
