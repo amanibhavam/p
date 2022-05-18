@@ -11,7 +11,8 @@ platform:
     RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
     COPY pyproject.toml poetry.lock .
     RUN md5sum pyproject.toml poetry.lock
-    RUN ~/bin/e poetry install
+    RUN --mount=type=cache,target=/home/ubuntu/.cache/pypoetry/virtualenvs sudo chown ubuntu:ubuntu /home/ubuntu/.cache/pypoetry/virtualenvs
+    RUN --mount=type=cache,target=/home/ubuntu/.cache/pypoetry/virtualenvs ~/bin/e poetry install
 
 update:
     FROM lib+platform
