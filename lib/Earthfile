@@ -53,4 +53,5 @@ TERRAFORM_APPLY:
     COPY cdktf.out/stacks/${stack}/.plan .
     COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN --push ~/bin/e terraform apply .plan
-    SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
+    SAVE ARTIFACT .plan AS LOCAL cdktf.out/stacks/${stack}/.meh
+    #SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
