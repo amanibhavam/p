@@ -14,10 +14,12 @@ update:
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
+main:
+    FROM ${target}
+
 synth:
     FROM +platform
-    ARG target
-    COPY ${target}/main.py .
+    COPY +main/main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
