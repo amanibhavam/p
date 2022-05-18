@@ -1,11 +1,11 @@
 VERSION --parallel-load --shell-out-anywhere --use-chmod --use-host-command 0.6
 # --use-registry-for-with-docker
 
-IMPORT ../lib AS lib
-
-FROM lib+platform
+FROM github.com/katt-org/p/lib:master+platform
 
 ARG stack
+
+IMPORT ../lib AS lib
 
 test:
     RUN --secret meh echo $meh
