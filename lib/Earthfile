@@ -17,7 +17,7 @@ update:
 synth:
     FROM +platform
     ARG target
-    COPY +${target}/main.py .
+    COPY ${target}/main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
