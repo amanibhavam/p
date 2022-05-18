@@ -6,11 +6,7 @@ IMPORT github.com/katt-org/p/lib:master AS lib
 FROM lib+platform
 
 ARG stack
-
-meh:
-    FROM ubuntu
-    COPY main.py .
-    SAVE IMAGE --push registry.fly.io/docker:cache-meh
+ARG main
 
 fit:
-    FROM lib+fit --stack=${stack} --main=$(cat main.py | base64 -w 0)
+    FROM lib+fit --stack=${stack} --main=${main}
