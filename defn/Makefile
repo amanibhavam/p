@@ -1,4 +1,4 @@
 SHELL := /bin/bash
 
 fit:
-	e +fit --stack=null
+	time e +fit --stack=null
