@@ -13,9 +13,9 @@ platform:
 
 update:
     FROM +platform
-    COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry update
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    RUN md5sum pyproject.toml poetry.lock
+    SAVE ARTIFACT poetry.lock
 
 synth:
     FROM +platform
