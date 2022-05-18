@@ -28,20 +28,20 @@ synth:
 init:
     FROM lib+platform
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
-    RUN ~/bin/e terraform init
+    RUN --mount=type=cache,target=/home/ubuntu/.terraform.d/plugin-cache ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl
 
 plan:
     FROM +init
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
-    RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
+    RUN --no-cache --mount=type=cache,target=/home/ubuntu/.terraform.d/plugin-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
     SAVE ARTIFACT .plan
 
 apply:
     FROM +init
     COPY +plan/.plan .
     COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
-    RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform apply .plan
+    RUN --no-cache --mount=type=cache,target=/home/ubuntu/.terraform.d/plugin-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform apply .plan
     SAVE ARTIFACT terraform.tfstate
 
 fit:
