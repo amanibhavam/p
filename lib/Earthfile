@@ -19,7 +19,7 @@ main:
 
 synth:
     FROM +platform
-    COPY +main/main.py .
+    COPY (+main/main.py --target=${target}) .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
