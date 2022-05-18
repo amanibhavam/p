@@ -5,6 +5,7 @@ FROM registry.fly.io/defn:dev-tower
 platform:
     RUN echo '{ "language": "python", "app": "poetry run python -m main" }' > cdktf.json
     COPY pyproject.toml poetry.lock .
+    RUN md5sum pyproject.toml poetry.lock
     RUN ~/bin/e poetry install
 
 update:
