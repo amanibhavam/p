@@ -1,16 +1,18 @@
 VERSION --parallel-load --shell-out-anywhere --use-chmod --use-host-command 0.6
 # --use-registry-for-with-docker
 
-FROM github.com/katt-org/p/lib:master+platform
+IMPORT github.com/katt-org/p/lib:master AS lib
+
+FROM lib+platform
 
 ARG stack
-
-IMPORT ../lib AS lib
 
 test:
     RUN --secret meh echo $meh
     RUN --secret feh echo $feh
     SAVE IMAGE --push registry.fly.io/docker:cache-test
+
+warm:
 
 update:
     DO lib+PROJECT_UPDATE
