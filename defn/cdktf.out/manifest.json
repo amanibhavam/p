@@ -9,22 +9,6 @@
       "annotations": [],
       "dependencies": []
     },
-    "kitt": {
-      "name": "kitt",
-      "constructPath": "kitt",
-      "workingDirectory": "stacks/kitt",
-      "synthesizedStackPath": "stacks/kitt/cdk.tf.json",
-      "annotations": [],
-      "dependencies": []
-    },
-    "katt": {
-      "name": "katt",
-      "constructPath": "katt",
-      "workingDirectory": "stacks/katt",
-      "synthesizedStackPath": "stacks/katt/cdk.tf.json",
-      "annotations": [],
-      "dependencies": []
-    },
     "do": {
       "name": "do",
       "constructPath": "do",

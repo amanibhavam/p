@@ -20,13 +20,13 @@ def main():
     stack = NullStack(app, "null")
     LocalBackend(stack, path="./terraform.tfstate")
 
-    stack = AwsOrganizationStack(app, "kitt", "kitt", "defn.sh", "us-west-2")
-    LocalBackend(stack, path="./terraform.tfstate")
+    #stack = AwsOrganizationStack(app, "kitt", "kitt", "defn.sh", "us-west-2")
+    #LocalBackend(stack, path="./terraform.tfstate")
 
-    stack = AwsOrganizationStack(app, "katt", "katt", "defn.sh", "us-west-2")
-    LocalBackend(stack, path="./terraform.tfstate")
+    #stack = AwsOrganizationStack(app, "katt", "katt", "defn.sh", "us-west-2")
+    #LocalBackend(stack, path="./terraform.tfstate")
 
-    stack = DigitaloceanStack(app, "do", "defn")
+    stack = DigitaloceanStack(app, "do", "defn4")
     LocalBackend(stack, path="./terraform.tfstate")
 
     app.synth()
