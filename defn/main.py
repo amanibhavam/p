@@ -10,6 +10,7 @@ def main():
     stack = NullStack(app, "null")
     Resource(stack, "ex3")
     Resource(stack, "ex4")
+    Resource(stack, "ex5")
     LocalBackend(stack, path="./terraform.tfstate")
 
     app.synth()
