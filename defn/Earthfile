@@ -13,4 +13,4 @@ meh:
     SAVE IMAGE --push registry.fly.io/docker:cache-meh
 
 fit:
-    FROM lib+fit --stack=${stack} --target=registry.fly.io/docker:cache-meh
+    FROM lib+fit --stack=${stack} --main=$(cat main.py | base64 -w 0)
