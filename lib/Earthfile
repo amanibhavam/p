@@ -49,6 +49,7 @@ TERRAFORM_PLAN:
 TERRAFORM_APPLY:
     COMMAND
     ARG stack
-    COPY cdktf.out/stacks/${stack} .
+    COPY cdktf.out/stacks/${stack}/.plan .
+    COPY cdktf.out/stacks/${stack}/terraform.tfstate .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN --push ~/bin/e terraform apply .plan
     SAVE ARTIFACT terraform.tfstate AS LOCAL cdktf.out/stacks/${stack}/terraform.tfstate
