@@ -16,5 +16,4 @@ fit:
 
 debug:
     FROM +fit
-    RUN --no-cache df -klh
-    RUN --no-cache find .terraform.d/plugin-cache
+    RUN --no-cache find .terraform.d/plugin-cache .terraform/providers -ls
