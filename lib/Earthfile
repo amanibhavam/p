@@ -2,6 +2,7 @@ VERSION 0.6
 
 ARG target
 ARG stack
+ARG prefix
 
 platform:
     FROM registry.fly.io/defn:dev-tower
@@ -17,7 +18,6 @@ update:
 
 main:
     FROM ${target}
-    ARG prefix
     SAVE ARTIFACT main.py ${prefix}/main.py
 
 synth:
@@ -28,21 +28,18 @@ synth:
 
 init:
     FROM +platform
-    ARG stack
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN ~/bin/e terraform init
     SAVE ARTIFACT .terraform.lock.hcl
 
 plan:
     FROM +init
-    ARG stack
     COPY +synth/cdktf.out/stacks/${stack}/cdk.tf.json .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform plan -out=.plan
     SAVE ARTIFACT .plan
 
 apply:
     FROM +init
-    ARG stack
     COPY +plan/.plan .
     COPY --if-exists cdktf.out/stacks/${stack}/terraform.tfstate .
     RUN --no-cache --secret DIGITALOCEAN_TOKEN ~/bin/e terraform apply .plan
