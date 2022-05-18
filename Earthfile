@@ -1,7 +1,7 @@
 VERSION --parallel-load --shell-out-anywhere --use-chmod --use-host-command 0.6
 # --use-registry-for-with-docker
 
-IMPORT github.com/katt-org/p/lib:master AS lib
+IMPORT github.com/defn/cloud/lib:master AS lib
 
 FROM lib+platform
 
@@ -12,7 +12,7 @@ main:
     SAVE ARTIFACT main.py
 
 fit:
-    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p/defn+main
+    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p+main
 
 debug:
     FROM +fit
