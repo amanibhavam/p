@@ -16,15 +16,10 @@ update:
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
-main:
-    FROM ${target}
-    COPY ${script} main.py
-    SAVE ARTIFACT main.py
-
 synth:
     FROM +platform
     RUN echo "${main}" | base64 -d > main.py
-    COPY +main/main.py .
+    COPY ${target}/main.py .
     RUN ~/bin/e poetry run python -m main
     SAVE ARTIFACT cdktf.out
 
