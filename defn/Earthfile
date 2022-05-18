@@ -6,7 +6,6 @@ IMPORT github.com/katt-org/p/lib:master AS lib
 FROM lib+platform
 
 ARG stack
-ARG main
 
 fit:
-    FROM lib+fit --stack=${stack} --main=${main}
+    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p+main
