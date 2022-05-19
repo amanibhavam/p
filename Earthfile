@@ -2,12 +2,11 @@ VERSION --shell-out-anywhere --use-chmod --use-host-command --earthly-version-ar
 
 IMPORT github.com/defn/cloud/lib:master AS lib
 
-FROM lib+platform
-
 ARG target=github.com/katt-org/p+warm
 ARG stack
 
 warm:
+    FROM lib+platform
     COPY pyproject.toml poetry.lock .
     RUN ~/bin/e poetry install
     COPY main.py .
