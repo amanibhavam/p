@@ -13,8 +13,7 @@ warm:
     SAVE ARTIFACT main.py
 
 update:
-    FROM lib+warm --target=github.com/katt-org/p+warm
-    RUN ~/bin/e poetry update
+    FROM lib+update --target=github.com/katt-org/p+warm
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
 plan:
