@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
-debug:
-	time e +debug --stack=null
+plan:
+	time e +plan --stack=null
 
-fit:
-	time e +fit --stack=null
+apply:
+	time e +apply --stack=null

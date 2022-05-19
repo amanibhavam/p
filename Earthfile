@@ -1,5 +1,4 @@
-VERSION --parallel-load --shell-out-anywhere --use-chmod --use-host-command 0.6
-# --use-registry-for-with-docker
+VERSION --shell-out-anywhere --use-chmod --use-host-command --earthly-version-arg --use-copy-link 0.6
 
 IMPORT github.com/defn/cloud/lib:master AS lib
 
@@ -7,13 +6,19 @@ FROM lib+platform
 
 ARG stack
 
-main:
+warm:
+    COPY pyproject.toml poetry.lock .
+    RUN ~/bin/e poetry install
     COPY main.py .
     SAVE ARTIFACT main.py
 
-fit:
-    FROM lib+fit --stack=${stack} --target=github.com/katt-org/p+main
+update:
+    FROM +warm
+    RUN ~/bin/e poetry update
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
-debug:
-    FROM +fit
-    RUN --no-cache find .terraform.d/plugin-cache .terraform/providers -ls
+plan:
+    FROM lib+plan --stack=${stack} --target=github.com/katt-org/p+warm
+
+apply:
+    FROM lib+apply --stack=${stack} --target=github.com/katt-org/p+warm
