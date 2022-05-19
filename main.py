@@ -12,6 +12,7 @@ def main():
     Resource(stack, "ex4")
     Resource(stack, "ex5")
     Resource(stack, "ex6")
+    Resource(stack, "ex7")
     LocalBackend(stack, path="./terraform.tfstate")
 
     app.synth()
