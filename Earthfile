@@ -13,12 +13,12 @@ warm:
     SAVE ARTIFACT main.py
 
 update:
-    FROM +warm
+    FROM lib+warm --target=github.com/katt-org/p+warm
     RUN ~/bin/e poetry update
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
 plan:
-    FROM lib+plan --stack=${stack} --target=github.com/katt-org/p+warm
+    FROM lib+plan --target=github.com/katt-org/p+warm --stack=${stack}
 
 apply:
-    FROM lib+apply --stack=${stack} --target=github.com/katt-org/p+warm
+    FROM lib+apply --target=github.com/katt-org/p+warm --stack=${stack}

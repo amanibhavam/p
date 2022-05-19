@@ -8,14 +8,6 @@
       "synthesizedStackPath": "stacks/null/cdk.tf.json",
       "annotations": [],
       "dependencies": []
-    },
-    "do": {
-      "name": "do",
-      "constructPath": "do",
-      "workingDirectory": "stacks/do",
-      "synthesizedStackPath": "stacks/do/cdk.tf.json",
-      "annotations": [],
-      "dependencies": []
     }
   }
 }

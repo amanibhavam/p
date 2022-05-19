@@ -9,6 +9,12 @@
     }
   },
   "provider": {
+    "buildkite": [
+      {
+        "api_token": "",
+        "organization": "defn"
+      }
+    ],
     "null": [
       {
       }
@@ -31,6 +37,46 @@
             "uniqueId": "ex2"
           }
         }
+      },
+      "ex3": {
+        "//": {
+          "metadata": {
+            "path": "null/ex3",
+            "uniqueId": "ex3"
+          }
+        }
+      },
+      "ex4": {
+        "//": {
+          "metadata": {
+            "path": "null/ex4",
+            "uniqueId": "ex4"
+          }
+        }
+      },
+      "ex5": {
+        "//": {
+          "metadata": {
+            "path": "null/ex5",
+            "uniqueId": "ex5"
+          }
+        }
+      },
+      "ex6": {
+        "//": {
+          "metadata": {
+            "path": "null/ex6",
+            "uniqueId": "ex6"
+          }
+        }
+      },
+      "ex7": {
+        "//": {
+          "metadata": {
+            "path": "null/ex7",
+            "uniqueId": "ex7"
+          }
+        }
       }
     }
   },
@@ -41,6 +87,10 @@
       }
     },
     "required_providers": {
+      "buildkite": {
+        "source": "buildkite/buildkite",
+        "version": "0.9.0"
+      },
       "null": {
         "source": "null",
         "version": "2.1.2"
