@@ -18,6 +18,8 @@ update:
 
 plan:
     FROM lib+plan --target=github.com/katt-org/p+warm --stack=${stack}
+    SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
 
 apply:
     FROM lib+apply --target=github.com/katt-org/p+warm --stack=${stack}
+    SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out

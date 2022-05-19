@@ -1,11 +1,11 @@
 {
   "version": "0.10.4",
   "stacks": {
-    "null": {
-      "name": "null",
-      "constructPath": "null",
-      "workingDirectory": "stacks/null",
-      "synthesizedStackPath": "stacks/null/cdk.tf.json",
+    "demo": {
+      "name": "demo",
+      "constructPath": "demo",
+      "workingDirectory": "stacks/demo",
+      "synthesizedStackPath": "stacks/demo/cdk.tf.json",
       "annotations": [],
       "dependencies": []
     }

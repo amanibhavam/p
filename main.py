@@ -11,7 +11,7 @@ class BuildkiteStack(TerraformStack):
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
 
-        BuildkiteProvider(self, "buildkite", organization="defn", api_token="")
+        BuildkiteProvider(self, "buildkite", organization="defn") # type: ignore
 
 def main():
     app = App()
