@@ -4,6 +4,7 @@ IMPORT github.com/defn/cloud/lib:master AS lib
 
 FROM lib+platform
 
+ARG target=github.com/katt-org/p+warm
 ARG stack
 
 warm:
@@ -13,13 +14,13 @@ warm:
     SAVE ARTIFACT main.py
 
 update:
-    FROM lib+update --target=github.com/katt-org/p+warm
+    FROM lib+update --target=${target}
     SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
 plan:
-    FROM lib+plan --target=github.com/katt-org/p+warm --stack=${stack}
+    FROM lib+plan --target=${target} --stack=${stack}
     SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
 
 apply:
-    FROM lib+apply --target=github.com/katt-org/p+warm --stack=${stack}
+    FROM lib+apply --target=${target} --stack=${stack}
     SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
