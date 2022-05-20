@@ -16,7 +16,7 @@ def main():
     Resource(stack, "ex6")
     Resource(stack, "ex7")
 
-    BuildkiteProvider(stack, "buildkite", organization="defn") # type: ignore
+    BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
 
     RemoteBackend(stack, organization="defn", workspaces="bootstrap")
 
