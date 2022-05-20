@@ -7,14 +7,8 @@ ARG stack
 
 warm:
     FROM lib+platform
-    COPY pyproject.toml poetry.lock .
-    RUN ~/bin/e poetry install
     COPY main.py .
     SAVE ARTIFACT main.py
-
-update:
-    FROM lib+update --target=${target}
-    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
 
 plan:
     FROM lib+plan --target=${target} --stack=${stack}
