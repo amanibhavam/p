@@ -10,6 +10,11 @@ warm:
     COPY main.py .
     SAVE ARTIFACT main.py
 
+update:
+    FROM lib+init --target=${target} --stack=${stack}
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT pyproject.toml poetry.lock AS LOCAL pyproject.toml
+
 plan:
     FROM lib+plan --target=${target} --stack=${stack}
     SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out

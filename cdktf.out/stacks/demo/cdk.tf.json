@@ -1,7 +1,7 @@
 {
   "//": {
     "metadata": {
-      "backend": "local",
+      "backend": "remote",
       "stackName": "demo",
       "version": "0.10.4"
     },
@@ -38,38 +38,6 @@
           }
         }
       },
-      "ex3": {
-        "//": {
-          "metadata": {
-            "path": "demo/ex3",
-            "uniqueId": "ex3"
-          }
-        }
-      },
-      "ex4": {
-        "//": {
-          "metadata": {
-            "path": "demo/ex4",
-            "uniqueId": "ex4"
-          }
-        }
-      },
-      "ex5": {
-        "//": {
-          "metadata": {
-            "path": "demo/ex5",
-            "uniqueId": "ex5"
-          }
-        }
-      },
-      "ex6": {
-        "//": {
-          "metadata": {
-            "path": "demo/ex6",
-            "uniqueId": "ex6"
-          }
-        }
-      },
       "ex7": {
         "//": {
           "metadata": {
@@ -82,8 +50,11 @@
   },
   "terraform": {
     "backend": {
-      "local": {
-        "path": "./terraform.tfstate"
+      "remote": {
+        "organization": "defn",
+        "workspaces": {
+          "name": "bootstrap"
+        }
       }
     },
     "required_providers": {
