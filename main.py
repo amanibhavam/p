@@ -2,6 +2,12 @@ import json
 import os
 from email import contentmanager
 
+context = {
+    "excludeStackIdFromLogicalIds": True,
+    "allowSepCharsInLogicalIds": True
+}
+os.environ.setdefault("CDKTF_CONTEXT_JSON", json.dumps(context))
+
 from cdktf import App, Fn, NamedRemoteWorkspace, RemoteBackend, TerraformStack
 from cdktf_cdktf_provider_aws import AwsProvider, DataAwsIdentitystoreGroup
 from cdktf_cdktf_provider_aws.organizations import (OrganizationsAccount,
@@ -16,12 +22,6 @@ from cdktf_cdktf_provider_tfe import TfeProvider
 from constructs import Construct
 from defn_cdktf_provider_buildkite.buildkite import BuildkiteProvider
 from defn_cdktf_provider_cloudflare.cloudflare import CloudflareProvider
-
-context = {
-    "excludeStackIdFromLogicalIds": True,
-    "allowSepCharsInLogicalIds": True
-}
-os.environ.setdefault("CDKTF_CONTEXT_JSON", json.dumps(context))
 
 """ Creates Organizations, Accounts, and Administrator permission set """
 
