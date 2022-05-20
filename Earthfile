@@ -7,8 +7,8 @@ ARG stack
 
 warm:
     FROM lib+platform
-    COPY main.py .
-    SAVE ARTIFACT main.py
+    COPY foo foo
+    SAVE ARTIFACT foo
 
 update:
     FROM lib+init --target=${target} --stack=${stack}
