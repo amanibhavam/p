@@ -2,7 +2,7 @@ import json
 import os
 from email import contentmanager
 
-from cdktf import App, Fn, TerraformStack
+from cdktf import App, Fn, NamedRemoteWorkspace, RemoteBackend, TerraformStack
 from cdktf_cdktf_provider_aws import AwsProvider, DataAwsIdentitystoreGroup
 from cdktf_cdktf_provider_aws.organizations import (OrganizationsAccount,
                                                     OrganizationsOrganization)
@@ -168,20 +168,20 @@ class NullStack(TerraformStack):
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
 
+        BuildkiteProvider(self, "buildkite", organization="defn", api_token="")
         NullProvider(self, "null")
-        Resource(self, "ex1")
-        Resource(self, "ex2")
-        Resource(self, "ex7")
+
+        w = NamedRemoteWorkspace(name="bootstrap")
+        RemoteBackend(self, organization="defn", workspaces=w)
 
 def main():
     app = App()
 
-    BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
-
     stack = NullStack(app, "demo")
 
-    w = NamedRemoteWorkspace(name="bootstrap")
-    RemoteBackend(stack, organization="defn", workspaces=w)
+    Resource(stack, "ex1")
+    Resource(stack, "ex2")
+    Resource(stack, "ex7")
 
     app.synth()
 
