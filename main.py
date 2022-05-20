@@ -4,7 +4,6 @@ import foo.init
 
 from cdktf import App
 from cdktf_cdktf_provider_null import Resource
-from constructs import Construct
 
 from foo.null import NullStack
 

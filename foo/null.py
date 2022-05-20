@@ -13,8 +13,11 @@ class NullStack(TerraformStack):
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
 
-        BuildkiteProvider(self, "buildkite", organization="defn", api_token="")
         NullProvider(self, "null")
+        BuildkiteProvider(self, "buildkite", organization="defn", api_token="")
+        TfeProvider(self, "tfe")
+        GithubProvider(self, "github", organization="defn")
+        CloudflareProvider(self, "cloudflare")
 
         w = NamedRemoteWorkspace(name="bootstrap")
         RemoteBackend(self, organization="defn", workspaces=w)
