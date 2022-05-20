@@ -10,10 +10,6 @@ def main():
     app = App()
 
     stack = NullStack(app, "demo")
-    Resource(stack, "ex3")
-    Resource(stack, "ex4")
-    Resource(stack, "ex5")
-    Resource(stack, "ex6")
     Resource(stack, "ex7")
 
     BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
