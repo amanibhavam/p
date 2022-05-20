@@ -19,7 +19,8 @@ update:
 plan:
     FROM lib+plan --target=${target} --stack=${stack}
     SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out
+    SAVE ARTIFACT poetry.lock AS LOCAL poetry.lock
+    SAVE ARTIFACT pyproject.toml AS LOCAL pyproject.toml
 
 apply:
     FROM lib+apply --target=${target} --stack=${stack}
-    SAVE ARTIFACT cdktf.out AS LOCAL cdktf.out

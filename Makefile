@@ -1,7 +1,5 @@
-SHELL := /bin/bash
-
 plan:
-	time e +plan --stack=demo
+	earthly +plan --stack=demo
 
 apply:
-	time e +apply --stack=demo
+	earthly --push +apply --stack=demo
