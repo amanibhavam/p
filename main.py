@@ -5,13 +5,13 @@ import foo.init
 from cdktf import App
 from cdktf_cdktf_provider_null import Resource
 
-from foo.null import NullStack
+from foo.demo import DemoStack
 
 
 def main():
     app = App()
 
-    stack = NullStack(app, "demo")
+    stack = DemoStack(app, "demo")
 
     app.synth()
 

@@ -7,8 +7,8 @@ from defn_cdktf_provider_buildkite.buildkite import BuildkiteProvider
 from defn_cdktf_provider_cloudflare.cloudflare import CloudflareProvider
 
 
-class NullStack(TerraformStack):
-    """cdktf Stack for an example"""
+class DemoStack(TerraformStack):
+    """cdktf Stack for demonstration """
 
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)
