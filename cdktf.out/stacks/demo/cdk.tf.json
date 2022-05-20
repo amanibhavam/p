@@ -29,6 +29,14 @@
             "uniqueId": "ex1"
           }
         }
+      },
+      "ex2": {
+        "//": {
+          "metadata": {
+            "path": "demo/ex2",
+            "uniqueId": "ex2"
+          }
+        }
       }
     }
   },

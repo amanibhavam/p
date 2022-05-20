@@ -1,5 +1,5 @@
 {
   "language": "python",
-  "app": "poetry run python -m foo.main",
+  "app": "poetry run python -m main",
   "projectId": "bc23fd4a-84d1-4130-bf04-e5011fe6aebc"
 }
