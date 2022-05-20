@@ -1,11 +1,6 @@
-import json
-import os
+import foo.init
 
-context = {
-    "excludeStackIdFromLogicalIds": True,
-    "allowSepCharsInLogicalIds": True
-}
-os.environ.setdefault("CDKTF_CONTEXT_JSON", json.dumps(context))
+''' init must run before cdktf '''
 
 from cdktf import App
 from cdktf_cdktf_provider_null import Resource
