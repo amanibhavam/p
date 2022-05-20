@@ -20,6 +20,7 @@ def main():
     stack = NullStack(app, "demo")
 
     Resource(stack, "ex1")
+    Resource(stack, "ex2")
 
     app.synth()
 
