@@ -1,17 +1,10 @@
 from amanibhavam import NullStack
-from cdktf import App, LocalBackend, TerraformStack
+from cdktf import App, RemoteBackend, TerraformStack
 from cdktf_cdktf_provider_null import Resource
+from cdktf_cdktf_provider_tfe import TfeProvider
 from constructs import Construct
 from defn_cdktf_provider_buildkite.buildkite import BuildkiteProvider
 
-
-class BuildkiteStack(TerraformStack):
-    """cdktf Stack for Buildkite pipeline"""
-
-    def __init__(self, scope: Construct, namespace: str):
-        super().__init__(scope, namespace)
-
-        BuildkiteProvider(self, "buildkite", organization="defn") # type: ignore
 
 def main():
     app = App()
@@ -23,9 +16,9 @@ def main():
     Resource(stack, "ex6")
     Resource(stack, "ex7")
 
-    BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
+    BuildkiteProvider(stack, "buildkite", organization="defn") # type: ignore
 
-    LocalBackend(stack, path="./terraform.tfstate")
+    RemoteBackend(stack, organization="defn", workspaces="bootstrap")
 
 
     app.synth()
