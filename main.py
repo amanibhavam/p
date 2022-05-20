@@ -9,7 +9,8 @@ context = {
 os.environ.setdefault("CDKTF_CONTEXT_JSON", json.dumps(context))
 
 from cdktf import App, Fn, NamedRemoteWorkspace, RemoteBackend, TerraformStack
-from cdktf_cdktf_provider_aws import AwsProvider, DataAwsIdentitystoreGroup
+from cdktf_cdktf_provider_aws import (AwsProvider, DataAwsIdentitystoreGroup,
+                                      DataAwsIdentitystoreGroupFilter)
 from cdktf_cdktf_provider_aws.organizations import (OrganizationsAccount,
                                                     OrganizationsOrganization)
 from cdktf_cdktf_provider_aws.ssoadmin import (DataAwsSsoadminInstances,
@@ -116,13 +117,14 @@ def organization(self, org: str, domain: str, accounts: list):
     sso_permission_set_admin = administrator(self, ssoadmin_instances)
 
     # Lookup pre-created Administrators group
+    f = DataAwsIdentitystoreGroupFilter(attribute_path="DisplayName", attribute_value="Administrators")
     identitystore_group = DataAwsIdentitystoreGroup(
         self,
         "administrators_sso_group",
         identity_store_id=Fn.element(
             Fn.tolist(ssoadmin_instances.identity_store_ids), 0
         ),
-        filter=[{"attributePath": "DisplayName", "attributeValue": "Administrators"}],
+        filter=[f],
     )
 
     # The master account (named "org") must be imported.
