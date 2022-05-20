@@ -2,7 +2,6 @@ import json
 import os
 from email import contentmanager
 
-from amanibhavam import NullStack
 from cdktf import App, Fn, TerraformStack
 from cdktf_cdktf_provider_aws import AwsProvider, DataAwsIdentitystoreGroup
 from cdktf_cdktf_provider_aws.organizations import (OrganizationsAccount,
