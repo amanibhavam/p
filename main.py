@@ -16,9 +16,9 @@ def main():
     Resource(stack, "ex6")
     Resource(stack, "ex7")
 
-    w = NamedRemoteWorkspace(name="bootstrap")
     BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
 
+    w = NamedRemoteWorkspace(name="bootstrap")
     RemoteBackend(stack, organization="defn", workspaces=w)
 
 
