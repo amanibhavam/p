@@ -11,7 +11,7 @@ from cdktf import App
 from cdktf_cdktf_provider_null import Resource
 from constructs import Construct
 
-from meh.null import NullStack
+from foo.null import NullStack
 
 
 def main():
