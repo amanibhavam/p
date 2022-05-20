@@ -52,7 +52,7 @@ def account(
     self,
     org: str,
     domain: str,
-    acct: list,
+    acct: str,
     identitystore_group,
     sso_permission_set_admin,
 ):
