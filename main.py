@@ -1,5 +1,5 @@
 from amanibhavam import NullStack
-from cdktf import App, RemoteBackend, TerraformStack
+from cdktf import App, NamedRemoteWorkspace, RemoteBackend, TerraformStack
 from cdktf_cdktf_provider_null import Resource
 from cdktf_cdktf_provider_tfe import TfeProvider
 from constructs import Construct
@@ -16,9 +16,10 @@ def main():
     Resource(stack, "ex6")
     Resource(stack, "ex7")
 
+    w = NamedRemoteWorkspace(name="bootstrap")
     BuildkiteProvider(stack, "buildkite", organization="defn", api_token="")
 
-    RemoteBackend(stack, organization="defn", workspaces="bootstrap")
+    RemoteBackend(stack, organization="defn", workspaces=w)
 
 
     app.synth()
