@@ -7,7 +7,7 @@ ARG stack
 
 warm:
     FROM lib+platform
-    COPY poetry.lock pyproject.toml
+    COPY poetry.lock pyproject.toml .
     RUN ~/bin/e poetry install
     COPY foo foo
     COPY main.py .
