@@ -1,6 +1,6 @@
 import foo.init
 
-''' init must run before cdktf '''
+""" init must run before cdktf """
 
 from cdktf import App
 from cdktf_cdktf_provider_null import Resource
@@ -15,5 +15,6 @@ def main():
 
     app.synth()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -10,7 +10,7 @@ from defn_cdktf_provider_vault.vault import VaultProvider
 
 
 class DemoStack(TerraformStack):
-    """cdktf Stack for demonstration """
+    """cdktf Stack for demonstration"""
 
     def __init__(self, scope: Construct, namespace: str):
         super().__init__(scope, namespace)

@@ -1,0 +1,4 @@
+{
+  "python.analysis.extraPaths": ["foo"],
+  "python.poetryPath": "/home/ubuntu/.local/bin/poetry"
+}
