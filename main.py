@@ -4,12 +4,15 @@ import foo.init
 
 import typer
 from cdktf import App
-from cdktf_cdktf_provider_null import Resource
 
 from foo.demo import DemoStack
+from foo.textual import GridTest
+
+cli = typer.Typer()
 
 
-def main(name: str = "demo"):
+@cli.command()
+def synth(name: str = "demo"):
     app = App()
 
     stack = DemoStack(app, name)
@@ -17,5 +20,10 @@ def main(name: str = "demo"):
     app.synth()
 
 
+@cli.command()
+def meh():
+    GridTest.run(title="Grid Test", log="textual.log")
+
+
 if __name__ == "__main__":
-    typer.run(main)
+    cli()

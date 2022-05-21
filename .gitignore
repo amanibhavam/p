@@ -4,3 +4,4 @@ __pycache__
 *tfstate*
 .plan
 .env
+textual.log
