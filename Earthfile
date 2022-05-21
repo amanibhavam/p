@@ -8,7 +8,7 @@ ARG stack
 warm:
     FROM lib+platform
     COPY poetry.lock pyproject.toml
-    RUN poetry install
+    RUN ~/bin/e poetry install
     COPY foo foo
     COPY main.py .
     SAVE ARTIFACT foo
