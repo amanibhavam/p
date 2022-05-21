@@ -1,7 +1,3 @@
-import foo.init
-
-""" init must run before cdktf """
-
 from textual.app import App
 from textual.widgets import Placeholder
 
