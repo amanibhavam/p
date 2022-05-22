@@ -1,12 +1,19 @@
 from cdktf import Fn, TerraformStack
-from cdktf_cdktf_provider_aws import (AwsProvider, DataAwsIdentitystoreGroup,
-                                      DataAwsIdentitystoreGroupFilter)
-from cdktf_cdktf_provider_aws.organizations import (OrganizationsAccount,
-                                                    OrganizationsOrganization)
-from cdktf_cdktf_provider_aws.ssoadmin import (DataAwsSsoadminInstances,
-                                               SsoadminAccountAssignment,
-                                               SsoadminManagedPolicyAttachment,
-                                               SsoadminPermissionSet)
+from cdktf_cdktf_provider_aws import (
+    AwsProvider,
+    DataAwsIdentitystoreGroup,
+    DataAwsIdentitystoreGroupFilter,
+)
+from cdktf_cdktf_provider_aws.organizations import (
+    OrganizationsAccount,
+    OrganizationsOrganization,
+)
+from cdktf_cdktf_provider_aws.ssoadmin import (
+    DataAwsSsoadminInstances,
+    SsoadminAccountAssignment,
+    SsoadminManagedPolicyAttachment,
+    SsoadminPermissionSet,
+)
 from constructs import Construct
 
 """ Creates Organizations, Accounts, and Administrator permission set """
@@ -102,7 +109,9 @@ def organization(self, org: str, domain: str, accounts: list):
     sso_permission_set_admin = administrator(self, ssoadmin_instances)
 
     # Lookup pre-created Administrators group
-    f = DataAwsIdentitystoreGroupFilter(attribute_path="DisplayName", attribute_value="Administrators")
+    f = DataAwsIdentitystoreGroupFilter(
+        attribute_path="DisplayName", attribute_value="Administrators"
+    )
     identitystore_group = DataAwsIdentitystoreGroup(
         self,
         "administrators_sso_group",
@@ -116,10 +125,13 @@ def organization(self, org: str, domain: str, accounts: list):
     for acct in accounts:
         account(self, org, domain, acct, identitystore_group, sso_permission_set_admin)
 
+
 class AwsOrganizationStack(TerraformStack):
     """cdktf Stack for an organization with accounts, sso."""
 
-    def __init__(self, scope: Construct, namespace: str, org: str, domain: str, region: str):
+    def __init__(
+        self, scope: Construct, namespace: str, org: str, domain: str, region: str
+    ):
         super().__init__(scope, namespace)
 
         self.awsProviders(region)
@@ -144,7 +156,7 @@ class AwsOrganizationStack(TerraformStack):
             "hub",
             "pub",
             "dev",
-            "dmz"
+            "dmz",
         ]
 
         organization(self, org, domain, accounts)

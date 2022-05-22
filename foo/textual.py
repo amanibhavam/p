@@ -29,3 +29,7 @@ class GridTest(App):
             area3=Placeholder(name="area3"),
             area4=Placeholder(name="area4"),
         )
+
+
+if __name__ == "__main__":
+    GridTest.run(title="Grid Test", log="textual.log")

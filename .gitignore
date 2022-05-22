@@ -5,3 +5,5 @@ __pycache__
 .plan
 .env
 textual.log
+.pants.d/
+.pids/
