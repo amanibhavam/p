@@ -10,4 +10,5 @@ enabled = false
 
 [python]
 enable_resolves = true
-lockfile_generator = 'poetry'
+lockfile_generator = 'pex'
+interpreter_constraints = ["CPython>=3.8,<4"]
